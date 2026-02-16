@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-Map Navigation with AR100 AMR</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    .report-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      line-height: 1.6;
+      color: #fff;
+    }
+    .report-container h1,
+    .report-container h2,
+    .report-container h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      color: #1db954;
+    }
+    .report-container p,
+    .report-container li,
+    .report-container pre {
+      text-align: justify;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .report-container ul,
+    .report-container ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-container figure {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .report-container figcaption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+    .highlight {
+      background: #222;
+      border-left: 4px solid #1db954;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: #1db954;
+      font-size: 1rem;
+      overflow-x: auto;
+    }
+    .code-block {
+      background: #222;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      color: #aaa;
+    }
+    .code-block code {
+      color: #1db954;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table th, table td {
+      border: 1px solid #333;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    table th {
+      background: #222;
+      color: #1db954;
+    }
+    table td {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Jerin Peter</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#publications">Publications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="report-container">
+    <h1>Multi-Map Navigation with AR100 AMR</h1>
+    <p><em>Wormhole-Based Autonomous Navigation Across Multiple Rooms</em></p>
+
+    <h2>Abstract</h2>
+    <p>
+      This project demonstrates a novel approach to multi-map, multi-room autonomous navigation using wormhole-based transitions on the ANSCER AR100 Autonomous Mobile Robot (AMR). The system enables seamless navigation across different mapped environments by intelligently managing map switching and route planning through a custom wormhole database, making it ideal for large facilities with multiple distinct areas.
+    </p>
+
+    <div class="video-container" style="text-align: center; margin: 2rem 0;">
+      <a href="https://www.youtube.com/watch?v=18NSClquw_o" target="_blank">
+        <img src="assets/images/projects/ar100_multimap_nav/video.png" alt="Watch the demo" style="max-width: 700px; width: 100%; border-radius: 8px;">
+      </a>
+      <figcaption>🎥 Click to view full video demo</figcaption>
+    </div>
+
+    <h2>1. Introduction</h2>
+    <p>
+      Traditional robot navigation systems typically operate within a single map, limiting their ability to navigate large, multi-room environments efficiently. This project addresses this limitation by implementing a "wormhole" concept—predefined transition points between maps that allow the robot to seamlessly move between different mapped areas. The system was developed and tested using the AR100 robot by Anscer Robotics in a custom multi-room simulation environment.
+    </p>
+
+    <h2>2. System Architecture</h2>
+    <p>The system comprises three main components working together to enable multi-map navigation:</p>
+    <ul>
+      <li><strong>WormholeManager:</strong> Connects to an SQLite database to retrieve wormhole data and compute direct/indirect transitions between maps.</li>
+      <li><strong>MapSwitcher:</strong> Dynamically loads map files (.pgm/.yaml) and controls the map_server for seamless map transitions.</li>
+      <li><strong>NavigationServer:</strong> A custom ROS Action Server that accepts navigation goals and determines whether to use direct move_base calls or wormhole-based routing.</li>
+    </ul>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/simusetup.png" alt="Simulation Setup" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 1. Custom 3-room simulation environment for testing multi-map navigation</figcaption>
+    </figure>
+
+    <h2>3. Wormhole Database</h2>
+    <p>
+      The SQLite database stores all wormhole connections, enabling the robot to find paths between different maps:
+    </p>
+    <table>
+      <tr>
+        <th>from_map</th>
+        <th>to_map</th>
+        <th>from_x</th>
+        <th>from_y</th>
+      </tr>
+      <tr>
+        <td>map1</td>
+        <td>map2</td>
+        <td>-7.8</td>
+        <td>1.2</td>
+      </tr>
+      <tr>
+        <td>map2</td>
+        <td>map1</td>
+        <td>-7.8</td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <td>map1</td>
+        <td>map3</td>
+        <td>8.5</td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td>map3</td>
+        <td>map1</td>
+        <td>8.5</td>
+        <td>2.5</td>
+      </tr>
+    </table>
+
+    <h2>4. Navigation Flow</h2>
+    <h3>4.1 Direct Transition</h3>
+    <p>When the target is in an adjacent map with a direct wormhole connection:</p>
+    <ol>
+      <li>Navigate to the wormhole location in the current map</li>
+      <li>Switch to the target map</li>
+      <li>Continue navigation to the final goal</li>
+    </ol>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/nav1_1.png" alt="Direct transition - heading to wormhole" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 2. Robot heading to wormhole location (map2 → map1 transition)</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/nav1_2.png" alt="Direct transition - goal reached" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 3. Map1 activated, robot reaches final goal</figcaption>
+    </figure>
+
+    <h3>4.2 Indirect Transition via Hub</h3>
+    <p>When there's no direct wormhole, the system routes through an intermediate "hub" map:</p>
+    <ol>
+      <li>Navigate to the hub map wormhole</li>
+      <li>Switch to hub, then navigate to the next wormhole</li>
+      <li>Switch to target map and reach the final destination</li>
+    </ol>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/nav2_1.png" alt="Indirect transition - routing via hub" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 4. Routing through map1 as a hub (map3 → map1 → map2)</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/nav2_2.png" alt="Indirect transition - map switching" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 5. Sequential map transitions in progress</figcaption>
+    </figure>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/nav2_3.png" alt="Indirect transition - final goal" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 6. Final goal reached after multi-map navigation</figcaption>
+    </figure>
+
+    <h2>5. User Interface</h2>
+    <p>
+      A PyQT GUI was developed for easy goal specification, allowing users to input target coordinates and the destination map name:
+    </p>
+
+    <figure>
+      <img src="assets/images/projects/ar100_multimap_nav/uigoal.png" alt="PyQT GUI for goal input" style="max-width: 700px; width: 100%;">
+      <figcaption>Fig. 7. PyQT GUI for specifying navigation goals (map name, target x, target y)</figcaption>
+    </figure>
+
+    <h2>6. Key Features</h2>
+    <ul>
+      <li>🛣️ <strong>Wormhole Navigation:</strong> Seamless transitions across rooms/maps using predefined connection points</li>
+      <li>💾 <strong>SQLite Database:</strong> Persistent storage for wormhole mappings with easy configuration</li>
+      <li>🔄 <strong>Dynamic Map Switching:</strong> Real-time map server control for smooth transitions</li>
+      <li>⚙️ <strong>move_base Integration:</strong> Full compatibility with ROS navigation stack</li>
+      <li>🛰️ <strong>Actionlib Interface:</strong> Standard ROS action server for goal delivery and feedback</li>
+      <li>🧩 <strong>Modular Architecture:</strong> Scalable design for adding new maps and wormholes</li>
+    </ul>
+
+    <h2>7. Technical Implementation</h2>
+    <h3>Custom Action Definition</h3>
+    <div class="code-block">
+      <pre><code># Goal
+float64 target_x
+float64 target_y
+string target_map
+
+---
+# Result
+bool success
+string message
+
+---
+# Feedback
+string feedback_msg</code></pre>
+    </div>
+
+    <h3>Core Components</h3>
+    <ul>
+      <li><code>navigation_server.cpp</code> — Handles navigation requests and manages map transitions</li>
+      <li><code>map_switcher.cpp</code> — Controls map_server for dynamic map loading</li>
+      <li><code>wormhole_manager.cpp</code> — Loads wormhole data and determines optimal routes</li>
+    </ul>
+
+    <h2>8. Future Work</h2>
+    <ul>
+      <li>Implement orientation handling for smoother wormhole transitions</li>
+      <li>Add waypoint validity checks to ensure coordinates are within map bounds</li>
+      <li>Implement goal preemption handling for dynamic task reassignment</li>
+      <li>Extend to support heterogeneous robot fleets</li>
+    </ul>
+
+    <h2>9. Conclusion</h2>
+    <p>
+      This project provides a modular and scalable framework for multi-environment navigation using ROS and SQLite. The wormhole-based approach enables robots to seamlessly traverse large facilities with multiple distinct areas, making it ideal for applications in smart facilities, research environments, and warehouse automation. The system demonstrates the feasibility of extending single-map navigation to complex multi-room scenarios without requiring a single unified map.
+    </p>
+
+    <div style="text-align:center; margin:2.5rem 0 0 0;">
+      <a href="https://github.com/jerinpeter/ar100-multimap-nav" target="_blank" style="display:inline-block; padding:0.75rem 2rem; background:#1db954; color:#fff; border-radius:6px; font-size:1.2rem; font-weight:600; text-decoration:none; transition:background 0.2s;">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+  <footer style="text-align: center; padding: 1rem 0; background-color: #000; color: #1db954;">
+    <p>&copy; 2025 Jerin Peter. All rights reserved.</p>
+  </footer>
+</body>
+</html>
