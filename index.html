@@ -1,1054 +1,1591 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Jerin Peter - Robotics Portfolio</title>
-  <meta property="og:image" content="assets/images/preview/image.jpeg">
-  <meta name="description"
-    content="Jerin Peter - Robotics Engineer specializing in Control, Navigation, and ROS Development. Explore my portfolio, projects, publications, and more.">
-  <meta name="keywords"
-    content="Jerin Peter, Robotics Engineer, ROS Developer, Control Systems, Navigation, Robotics Portfolio, Robotics Projects">
-  <meta name="author" content="Jerin Peter">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Jerin Peter - Robotics Portfolio">
-  <meta property="og:description"
-    content="Explore the portfolio of Jerin Peter, a Robotics Engineer with expertise in Control, Navigation, and ROS Development.">
-  <meta property="og:image" content="assets/images/preview/image.jpeg">
-  <meta property="og:url" content="https://jerinpeter.github.io/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jerin Peter - Robotics Portfolio">
-  <meta name="twitter:description"
-    content="Explore the portfolio of Jerin Peter, a Robotics Engineer with expertise in Control, Navigation, and ROS Development.">
-  <meta name="twitter:image" content="assets/images/preview/image.jpeg">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jerin Peter · Robotics Engineer</title>
+<meta name="description" content="Jerin Peter is a robotics engineer in San Francisco who brings up humanoid and legged robots from bare hardware to autonomy: sensors, SLAM, localization, Nav2 and on-robot AI.">
+<meta name="theme-color" content="#0A0B0D">
+<meta property="og:title" content="Jerin Peter · Robotics Engineer">
+<meta property="og:description" content="I take robots from bare hardware to autonomy.">
+<meta property="og:image" content="https://jerinpeter.github.io/assets/v2/p-outdoor.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A0B0D'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' text-anchor='middle' fill='%23FF6B2C'%3EJP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Caveat:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0A0B0D}
+a{color:#EDEEF0}a:hover{color:#FF6B2C}
+.jp{--bg:#0A0B0D;--s1:#101114;--s2:#15171B;--ln:rgba(255,255,255,.08);--ln2:rgba(255,255,255,.14);--tx:#EDEEF0;--mu:#8D929B;--ac:#FF6B2C;--acd:rgba(255,107,44,.14);
+  background:var(--bg);color:var(--tx);font-family:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+.jp *{box-sizing:border-box}
+.jp ::selection{background:var(--ac);color:#0A0B0D}
+.mono{font-family:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;letter-spacing:.02em}
+.serif{font-family:"Instrument Serif",ui-serif,Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.hand{font-family:"Caveat","Bradley Hand","Segoe Print",cursive;font-weight:600;color:var(--ac);letter-spacing:0}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 40px}
+.acc{color:var(--ac)}
+.mu{color:var(--mu)}
+
+/* progress + nav */
+.prog{position:fixed;top:0;left:0;right:0;height:2px;background:var(--ac);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,11,13,.55);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--ln)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;letter-spacing:-.02em}
+.logo-mark{width:30px;height:30px;border:1px solid var(--ln2);border-radius:8px;display:grid;place-items:center;font-size:12px}
+.nav-links{display:flex;gap:28px;font-size:14px}
+.nav-links a{color:#B7BBC2;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--tx)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:500;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn-a{background:var(--ac);color:#0A0B0D}
+.btn-a:hover{color:#0A0B0D;background:#FF8550;transform:translateY(-2px)}
+.btn-o{border:1px solid rgba(255,255,255,.22);color:var(--tx);background:rgba(10,11,13,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-o:hover{border-color:var(--tx);color:var(--tx);transform:translateY(-2px)}
+.btn-s{height:38px;padding:0 16px;font-size:14px}
+.btn svg{transition:transform .25s}
+.btn:hover svg{transform:translate(2px,-2px)}
+.ico{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.22);color:var(--tx);background:rgba(10,11,13,.35);transition:border-color .25s,color .25s,transform .25s}
+.ico:hover{border-color:var(--ac);color:var(--ac);transform:translateY(-2px)}
+.ico svg{width:18px;height:18px}
+
+/* hero */
+.hero{position:relative;margin-top:-65px;min-height:820px;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-3;background:#0A0B0D}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:slide 36s linear infinite;filter:saturate(.65) contrast(1.05) brightness(.5)}
+.slides img:nth-child(2),.caps > span:nth-child(2){animation-delay:6s}
+.slides img:nth-child(3),.caps > span:nth-child(3){animation-delay:12s}
+.slides img:nth-child(4),.caps > span:nth-child(4){animation-delay:18s}
+.slides img:nth-child(5),.caps > span:nth-child(5){animation-delay:24s}
+.slides img:nth-child(6),.caps > span:nth-child(6){animation-delay:30s}
+@keyframes slide{0%{opacity:0;transform:scale(1.14)}4%{opacity:1}17%{opacity:1}21%{opacity:0;transform:scale(1.02)}100%{opacity:0;transform:scale(1.02)}}
+.scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(10,11,13,.95) 0%,rgba(10,11,13,.82) 40%,rgba(10,11,13,.55) 72%,rgba(10,11,13,.62) 100%),linear-gradient(0deg,#0A0B0D 0%,rgba(10,11,13,0) 30%)}
+.scan{position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);pointer-events:none}
+.hud{position:absolute;inset:88px 28px 28px;pointer-events:none;font-size:11.5px;text-transform:uppercase;color:#C9CCD1}
+.hud .k{position:absolute;width:22px;height:22px;border-color:rgba(255,255,255,.6);border-style:solid}
+.hud .k1{top:0;left:0;border-width:1px 0 0 1px}.hud .k2{top:0;right:0;border-width:1px 1px 0 0}.hud .k3{bottom:0;left:0;border-width:0 0 1px 1px}.hud .k4{bottom:0;right:0;border-width:0 1px 1px 0}
+.hud-tl{position:absolute;top:14px;left:34px;display:flex;align-items:center;gap:14px}
+.hud-tr{position:absolute;top:14px;right:34px;display:flex;gap:14px}
+.rec{display:inline-flex;align-items:center;gap:8px;color:#fff}
+.rec i{width:8px;height:8px;border-radius:50%;background:#FF3B30;animation:blink 1.4s steps(2) infinite}
+.caps{position:absolute;right:34px;bottom:14px;height:18px;width:420px;text-align:right}
+.caps > span{position:absolute;right:0;bottom:0;white-space:nowrap;opacity:0;animation:capx 36s linear infinite}
+@keyframes capx{0%{opacity:0;transform:translateY(6px)}4%,17%{opacity:1;transform:none}20%,100%{opacity:0;transform:translateY(-6px)}}
+.cross{position:absolute;left:74%;top:40%;width:44px;height:44px;opacity:.5}
+.cross::before,.cross::after{content:"";position:absolute;background:#fff}
+.cross::before{left:50%;top:0;bottom:0;width:1px}
+.cross::after{top:50%;left:0;right:0;height:1px}
+@property --tm{syntax:"<integer>";inherits:false;initial-value:0}
+@property --ts{syntax:"<integer>";inherits:false;initial-value:0}
+.tcm{animation:tcm 3600s linear infinite;counter-reset:tm var(--tm)}.tcm::after{content:counter(tm,decimal-leading-zero)}
+.tcs{animation:tcs 60s steps(60) infinite;counter-reset:ts var(--ts)}.tcs::after{content:counter(ts,decimal-leading-zero)}
+@keyframes tcm{to{--tm:60}}
+@keyframes tcs{to{--ts:60}}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr);align-items:end;padding-top:150px;padding-bottom:92px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;color:#C9CCD1;text-transform:uppercase}
+.kicker b{color:var(--ac);font-weight:500}
+.h1{font-size:clamp(46px,8vw,120px);line-height:.95;letter-spacing:-.05em;font-weight:500;margin:22px 0 0}
+.h1 .ln{display:block;overflow:hidden;padding-bottom:.07em}
+.h1 .ln > span{display:inline-block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.h1 .ln:nth-child(2) > span{animation-delay:.12s}
+.h1 .ln:nth-child(3) > span{animation-delay:.24s}
+.h1 .serif{font-size:1.1em;letter-spacing:-.02em;padding-right:.08em}
+@keyframes rise{to{transform:none}}
+.scrawl{display:inline-flex;align-items:flex-start;gap:6px;font-size:30px;line-height:1.05;margin:4px 0 0 min(34%,420px);transform:rotate(-4deg);transform-origin:0 0;opacity:0;animation:fadeup .9s ease 1.3s forwards}
+.scrawl svg{flex:none;margin-top:-18px}
+.fade{opacity:0;animation:fadeup 1s cubic-bezier(.16,1,.3,1) forwards}
+.d1{animation-delay:.45s}.d2{animation-delay:.6s}.d3{animation-delay:.75s}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1}}
+.scrawl.fade,.scrawl{will-change:opacity}
+.lede{font-size:19px;color:#B9BDC4;max-width:600px;margin:22px 0 0;text-wrap:pretty}
+.lede b{color:var(--tx);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;align-items:center}
+
+/* minimap */
+.viz{position:relative;border:1px solid rgba(255,255,255,.18);border-radius:16px;background:rgba(12,13,16,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;opacity:0;animation:vizin 1.4s cubic-bezier(.16,1,.3,1) .6s forwards;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+@keyframes vizin{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.viz-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;font-size:10.5px;color:var(--mu);text-transform:uppercase;border-bottom:1px solid var(--ln)}
+.viz-bot{border-top:1px solid var(--ln);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));font-size:10.5px;color:var(--mu);text-transform:uppercase}
+.viz-bot > div{padding:9px 12px;display:flex;flex-direction:column;gap:2px}
+.viz-bot > div + div{border-left:1px solid var(--ln)}
+.viz-bot .v{color:var(--tx);font-size:12px;text-transform:none}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--tx)}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--ac);animation:blink 1.2s steps(2) infinite}
+.viz svg{display:block;width:100%;height:auto}
+.plan{stroke-dasharray:4 7;animation:march 1.2s linear infinite}
+@keyframes march{to{stroke-dashoffset:-22}}
+.bot{animation:drive 22s linear infinite}
+@keyframes drive{
+0%{transform:translate(72px,408px) rotate(-90deg)}
+13.09%{transform:translate(72px,264px) rotate(-90deg)}
+14.09%{transform:translate(72px,264px) rotate(-45deg)}
+22.34%{transform:translate(144px,192px) rotate(-45deg)}
+23.34%{transform:translate(144px,192px) rotate(0deg)}
+33.24%{transform:translate(264px,192px) rotate(0deg)}
+34.24%{transform:translate(264px,192px) rotate(-45deg)}
+42.5%{transform:translate(336px,120px) rotate(-45deg)}
+43.5%{transform:translate(336px,120px) rotate(0deg)}
+49.04%{transform:translate(408px,120px) rotate(0deg)}
+50.04%{transform:translate(408px,120px) rotate(90deg)}
+66.49%{transform:translate(408px,312px) rotate(90deg)}
+67.49%{transform:translate(408px,312px) rotate(135deg)}
+75.74%{transform:translate(336px,384px) rotate(135deg)}
+76.74%{transform:translate(336px,384px) rotate(180deg)}
+91.01%{transform:translate(168px,384px) rotate(180deg)}
+92.01%{transform:translate(168px,384px) rotate(166deg)}
+99%{transform:translate(72px,408px) rotate(166deg)}
+100%{transform:translate(72px,408px) rotate(270deg)}}
+.sweep{transform-box:fill-box;transform-origin:center;animation:spin 2.2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring{transform-box:fill-box;transform-origin:center;animation:ping 2.2s cubic-bezier(.2,.6,.3,1) infinite}
+.ring2{animation-delay:1.1s}
+@keyframes ping{from{transform:scale(.15);opacity:.9}to{transform:scale(1);opacity:0}}
+.roll{animation:roll 1.6s ease-in-out infinite alternate}
+.roll2{animation-delay:.4s}.roll3{animation-delay:.8s}
+@keyframes roll{from{opacity:.1}to{opacity:.6}}
+.hit{animation:hit 2.2s linear infinite;opacity:.15}
+.hd1{animation-delay:.35s}.hd2{animation-delay:.7s}.hd3{animation-delay:1.05s}.hd4{animation-delay:1.4s}.hd5{animation-delay:1.75s}
+@keyframes hit{0%,100%{opacity:.15}8%{opacity:1}30%{opacity:.35}}
+@keyframes blink{50%{opacity:0}}
+@property --qx{syntax:"<integer>";inherits:false;initial-value:0}
+@property --qy{syntax:"<integer>";inherits:false;initial-value:0}
+@property --qh{syntax:"<integer>";inherits:false;initial-value:0}
+.tx{animation:telx 22s linear infinite;counter-reset:tx var(--qx)}.tx::after{content:counter(tx)}
+.ty{animation:tely 22s linear infinite;counter-reset:ty var(--qy)}.ty::after{content:counter(ty)}
+.th{animation:telh 22s linear infinite;counter-reset:th var(--qh)}.th::after{content:counter(th)}
+@keyframes telx{0%,14.09%{--qx:1440}22.34%,23.34%{--qx:2880}33.24%,34.24%{--qx:5280}42.5%,43.5%{--qx:6720}49.04%,66.49%{--qx:8160}75.74%,76.74%{--qx:6720}91.01%,92.01%{--qx:3360}99%,100%{--qx:1440}}
+@keyframes tely{0%{--qy:1440}13.09%,14.09%{--qy:4320}22.34%,33.24%{--qy:5760}42.5%,50.04%{--qy:7200}66.49%,67.49%{--qy:3360}75.74%,91.01%{--qy:1920}99%,100%{--qy:1440}}
+@keyframes telh{0%,13.09%{--qh:90}14.09%,22.34%{--qh:45}23.34%,33.24%{--qh:0}34.24%,42.5%{--qh:45}43.5%,49.04%{--qh:0}50.04%,66.49%{--qh:270}67.49%,75.74%{--qh:225}76.74%,91.01%{--qh:180}92.01%,99%{--qh:194}100%{--qh:90}}
+
+/* card mini animations */
+.mini{border:1px solid var(--ln);border-radius:12px;background:#0C0D10;overflow:hidden;margin-top:8px}
+.mini svg{display:block;width:100%;height:auto}
+.mini-l{display:flex;justify-content:space-between;gap:10px;padding:8px 11px;font-size:10px;color:var(--mu);text-transform:uppercase;border-bottom:1px solid var(--ln)}
+.hs{position:relative;display:inline-block;width:92px;height:12px;text-align:right}
+.hs b{position:absolute;right:0;top:0;font-weight:500;opacity:0}
+.hs b:nth-child(1){color:#FF8A8A;animation:hs1 8s infinite}.hs b:nth-child(2){color:var(--tx);animation:hs2 8s infinite}.hs b:nth-child(3){color:var(--tx);animation:hs3 8s infinite}.hs b:nth-child(4){color:var(--ac);animation:hs4 8s infinite}
+@keyframes hs1{0%,14%{opacity:1}15%,100%{opacity:0}}
+@keyframes hs2{0%,14%{opacity:0}15%,39%{opacity:1}40%,100%{opacity:0}}
+@keyframes hs3{0%,39%{opacity:0}40%,61%{opacity:1}62%,100%{opacity:0}}
+@keyframes hs4{0%,61%{opacity:0}62%,95%{opacity:1}96%,100%{opacity:0}}
+.pa,.pb{transform-box:view-box;transform-origin:100px 58px;animation:pconv 8s cubic-bezier(.5,0,.3,1) infinite}
+.pb{animation-name:pconv2}
+@keyframes pconv{0%,12%{transform:none}38%{transform:scale(.85) rotate(22deg)}62%,92%{transform:scale(.1) rotate(40deg)}100%{transform:none}}
+@keyframes pconv2{0%,12%{transform:none}38%{transform:scale(.9) rotate(-18deg)}62%,92%{transform:scale(.1) rotate(-34deg)}100%{transform:none}}
+.scn{transform-box:view-box;transform-origin:100px 58px;animation:snap 8s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes snap{0%,42%{transform:translate(16px,-10px) rotate(9deg);opacity:.45}62%,92%{transform:none;opacity:1}100%{transform:translate(16px,-10px) rotate(9deg);opacity:.45}}
+.vpr{opacity:0;animation:vpr 8s infinite}
+@keyframes vpr{0%,50%{opacity:0}54%,92%{opacity:1}96%,100%{opacity:0}}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.wall{animation:wall 9s linear infinite}
+@keyframes wall{0%{stroke-dashoffset:1;opacity:1}75%{stroke-dashoffset:0}92%{opacity:1;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:0}}
+.trail{animation:trail 9s linear infinite}
+@keyframes trail{0%{stroke-dashoffset:1;opacity:1}88%{stroke-dashoffset:0}94%{opacity:1}100%{opacity:0;stroke-dashoffset:0}}
+.hum{animation:walk 9s linear infinite}
+@keyframes walk{0%{transform:translate(22px,74px)}40%{transform:translate(150px,74px)}50%{transform:translate(176px,46px)}68%{transform:translate(226px,46px)}78%{transform:translate(254px,74px)}88%,100%{transform:translate(282px,74px)}}
+.bob{animation:bob .45s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-2px)}}
+.nogo{opacity:0;animation:nogo 9s infinite}
+@keyframes nogo{0%,18%{opacity:0}24%,92%{opacity:1}100%{opacity:0}}
+.tr{animation:tr 7s ease-in-out infinite}
+@keyframes tr{0%{stroke-dashoffset:1;opacity:1}40%{stroke-dashoffset:0}88%{opacity:1;stroke-dashoffset:0}96%,100%{opacity:0;stroke-dashoffset:0}}
+.pin{animation:pinx 7s infinite}
+@keyframes pinx{0%,5%{fill:#2A2D33}10%,90%{fill:#FF6B2C}100%{fill:#2A2D33}}
+.linkup{opacity:0;animation:linkup 7s infinite}
+@keyframes linkup{0%,46%{opacity:0}50%,56%,62%{opacity:1}53%,59%{opacity:.2}64%,90%{opacity:1}96%,100%{opacity:0}}
+.wave{animation:wave 2.4s linear infinite}
+@keyframes wave{to{transform:translateX(-96px)}}
+.fm{padding:12px 12px 0;display:flex;flex-direction:column;gap:10px}
+.say{display:flex;align-items:center;gap:8px;font-size:12px}
+.say .who{font-size:10px;text-transform:uppercase;color:var(--mu);border:1px solid var(--ln2);border-radius:6px;padding:2px 6px}
+.type{display:inline-block;overflow:hidden;white-space:nowrap;letter-spacing:0;width:0;border-right:2px solid var(--ac);animation:type 8s steps(20) infinite;color:var(--tx);font-size:13px;line-height:1.3}
+@keyframes type{0%,4%{width:0}28%,92%{width:20ch}100%{width:0}}
+.flow{display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.flow .node{padding:3px 7px;border:1px solid var(--ln2);border-radius:6px;color:var(--mu);animation:node 8s infinite}
+.flow .node:nth-of-type(2){animation-delay:.5s}
+@keyframes node{0%,30%{color:var(--mu);border-color:var(--ln2)}34%,92%{color:var(--ac);border-color:var(--ac)}100%{color:var(--mu)}}
+.flow i{width:16px;height:1px;background:var(--ln2)}
+.flow .tok{color:var(--ac);opacity:0;animation:tok 8s infinite;letter-spacing:0}
+@keyframes tok{0%,42%{opacity:0}46%,92%{opacity:1}100%{opacity:0}}
+.fpath{animation:fpath 8s ease-in-out infinite}
+@keyframes fpath{0%,48%{stroke-dashoffset:1;opacity:1}78%{stroke-dashoffset:0}92%{opacity:1;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:0}}
+.goal{opacity:0;transform-box:fill-box;transform-origin:center;animation:goal 8s infinite}
+@keyframes goal{0%,76%{opacity:0;transform:scale(.3)}80%{opacity:1;transform:scale(1.3)}84%,92%{opacity:1;transform:none}100%{opacity:0}}
+
+/* education logos */
+.edu-row{grid-template-columns:56px minmax(0,1fr) auto !important;align-items:center !important}
+.elogo{width:56px;height:56px;object-fit:contain}
+
+/* case files + lightboxes */
+.case{position:fixed;inset:0;z-index:120;background:#0A0B0D;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(30px);transition:opacity .45s,visibility .45s,transform .6s cubic-bezier(.16,1,.3,1)}
+.case:target{opacity:1;visibility:visible;transform:none}
+.case-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;height:60px;padding:0 24px;background:rgba(10,11,13,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--ln);font-size:12.5px;text-transform:uppercase;color:var(--mu)}
+.case-bar a{color:var(--tx);text-decoration:none;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border:1px solid var(--ln2);border-radius:999px}
+.case-bar a:hover{border-color:var(--ac);color:var(--ac)}
+.case-in{padding-top:56px;padding-bottom:96px}
+.case-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.case-tag{font-size:12px;text-transform:uppercase;color:var(--ac)}
+.case-h{font-size:clamp(36px,5vw,68px);line-height:1;letter-spacing:-.045em;font-weight:500;margin:16px 0 0;text-wrap:balance}
+.case-sub{font-size:19px;color:#B9BDC4;margin:22px 0 0;text-wrap:pretty}
+.case-meta{margin:32px 0 0;display:flex;flex-direction:column;border-top:1px solid var(--ln)}
+.case-meta div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--ln)}
+.case-meta dt{font-size:11.5px;color:var(--mu);text-transform:uppercase;margin:0}
+.case-meta dd{margin:0;font-size:13.5px;letter-spacing:0}
+.case-hero{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--ln);background:var(--s1);aspect-ratio:4/3}
+.case-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.case-body{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;margin-top:72px}
+.case-body h3{font-size:12px;text-transform:uppercase;color:var(--mu);font-weight:500;margin:0 0 16px}
+.case-body p{margin:0;font-size:20px;line-height:1.5;letter-spacing:-.01em;text-wrap:pretty}
+.case-body ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.case-body li{padding:14px 0 14px 26px;border-bottom:1px solid var(--ln);position:relative;color:#C9CCD1;font-size:16px}
+.case-body li::before{content:"";position:absolute;left:0;top:24px;width:12px;height:1px;background:var(--ac)}
+.case-gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;margin-top:64px}
+.case-gal figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--ln);background:var(--s1);aspect-ratio:4/3}
+.case-gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.case-gal figure:hover img{transform:scale(1.04)}
+.case-hero.ct,.case-gal figure.ct{background:#fff}
+.case-hero.ct img,.case-gal figure.ct img{object-fit:contain}
+.case-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.case-next{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-top:96px;padding-top:28px;border-top:1px solid var(--ln);text-decoration:none;color:var(--tx)}
+.case-next span{font-size:12px;color:var(--mu);text-transform:uppercase}
+.case-next b{display:block;font-size:clamp(28px,4vw,52px);font-weight:500;letter-spacing:-.04em;line-height:1.05;margin-top:8px;transition:color .3s}
+.case-next:hover{color:var(--tx)}
+.case-next:hover b{color:var(--ac)}
+.lb{position:fixed;inset:0;z-index:120;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:76px 20px 32px;background:rgba(6,7,9,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.lb:target{opacity:1;visibility:visible}
+.lb-bg{position:absolute;inset:0;z-index:0}
+.lb img{position:relative;z-index:1;max-width:min(1200px,100%);max-height:calc(100vh - 190px);object-fit:contain;border-radius:12px;transform:scale(.95);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.lb:target img{transform:none}
+.lb p{position:relative;z-index:1;margin:0;text-align:center;max-width:640px;color:#C9CCD1;font-size:15px}
+.lb p b{display:block;color:var(--tx);font-size:12.5px;text-transform:uppercase;font-weight:500;margin-bottom:4px;font-family:"Geist Mono",ui-monospace,monospace}
+.lb-x{position:absolute;top:18px;right:18px;z-index:2;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:1px solid var(--ln2);border-radius:999px;color:var(--tx);text-decoration:none;font-size:13px;background:rgba(10,11,13,.6)}
+.lb-x:hover{border-color:var(--ac);color:var(--ac)}
+a.fi{text-decoration:none;color:inherit;cursor:zoom-in}
+a.fi:hover figcaption{color:var(--ac)}
+a.fi.case-link{cursor:pointer}
+
+/* departure board */
+.board-sec{padding:96px 0 0}
+.board{position:relative;border:1px solid var(--ln2);border-radius:18px;background:#0D0E11;padding:26px 28px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 40px 80px rgba(0,0,0,.35)}
+.board-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--ln)}
+.board-h h2{margin:0;font-size:clamp(26px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.board-h .mono{font-size:12px;color:var(--mu);text-transform:uppercase}
+.board-scroll{overflow-x:auto;margin:0 -8px;padding:0 8px}
+.brow{display:grid;grid-template-columns:14ch 10ch 35ch 12ch;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--ln);font-family:"Geist Mono",ui-monospace,Menlo,monospace;font-size:17px;letter-spacing:0;min-width:max-content;perspective:600px}
+.brow:last-child{border-bottom:0}
+.brow.bhead{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;padding:14px 0 6px;border-bottom:0}
+.flap{display:inline-block;width:100%;line-height:1.75;color:#F2F2F0;text-transform:uppercase;white-space:nowrap;background:linear-gradient(180deg,transparent calc(50% - .5px),rgba(0,0,0,.75) calc(50% - .5px),rgba(0,0,0,.75) calc(50% + .5px),transparent calc(50% + .5px)),repeating-linear-gradient(90deg,#1B1D22 0 calc(1ch - 2px),transparent calc(1ch - 2px) 1ch);transform-origin:50% 50%}
+.flap.st{color:var(--ac);animation:flip 7s cubic-bezier(.5,0,.2,1) infinite}
+.brow:nth-child(3) .st{animation-delay:.6s}.brow:nth-child(4) .st{animation-delay:1.2s}.brow:nth-child(5) .st{animation-delay:1.8s}.brow:nth-child(6) .st{animation-delay:2.4s}.brow:nth-child(7) .st{animation-delay:3s}.brow:nth-child(8) .st{animation-delay:3.6s}.brow:nth-child(9) .st{animation-delay:4.2s}
+@keyframes flip{0%,88%{transform:none}92%{transform:rotateX(-90deg)}96%{transform:rotateX(20deg)}100%{transform:none}}
+.board-f{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:14px;font-size:11.5px;color:var(--mu);text-transform:uppercase}
+
+/* sections */
+.sec{padding:128px 0 0}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--mu);text-transform:uppercase;margin-bottom:20px}
+.eyebrow::after{content:"";height:1px;width:64px;background:var(--ac)}
+.h2{font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0;max-width:880px;text-wrap:balance}
+.side-note{max-width:360px;color:var(--mu);font-size:15px;margin:0}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+.pwrap{position:relative}
+.portrait{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--ln);aspect-ratio:4/5;background:var(--s1);margin:0}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:grayscale(1) contrast(1.05) brightness(.9);transition:filter .8s,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.portrait:hover img{filter:none;transform:scale(1.03)}
+.pnote{position:absolute;right:-18px;top:46%;font-size:26px;line-height:1;transform:rotate(-8deg);display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.cap{position:absolute;left:12px;bottom:12px;right:12px;display:flex;justify-content:space-between;gap:8px;font-size:11.5px;text-transform:uppercase;color:var(--tx)}
+.cap span{background:rgba(10,11,13,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 10px;border-radius:8px}
+.statement{font-size:clamp(24px,2.6vw,34px);line-height:1.28;letter-spacing:-.02em;margin:0;text-wrap:pretty}
+.statement em{font-style:normal;color:var(--mu)}
+.about p.body{color:var(--mu);font-size:17px;margin:28px 0 0;max-width:640px;text-wrap:pretty}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:48px;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.stat{padding:24px 20px 22px 0;display:flex;flex-direction:column;gap:6px}
+.stat + .stat{padding-left:20px;border-left:1px solid var(--ln)}
+.num{font-size:clamp(40px,4.4vw,56px);font-weight:500;letter-spacing:-.04em;line-height:1}
+@property --n{syntax:"<integer>";inherits:false;initial-value:0}
+.cnt{counter-reset:n var(--n);animation:count 2s cubic-bezier(.16,1,.3,1) both}
+.cnt::after{content:counter(n)}
+.to6{--n:6}.to5{--n:5}.to4{--n:4}.to15{--n:15}
+@keyframes count{from{--n:0}}
+.stat .l{font-size:12px;color:var(--mu);text-transform:uppercase;line-height:1.4}
+.edu{margin-top:40px;display:flex;flex-direction:column}
+.edu-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--ln);align-items:baseline}
+.edu-row b{font-weight:500}
+.edu-row .mono{font-size:12.5px;color:var(--mu);text-transform:uppercase;white-space:nowrap}
+
+/* now cards */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:20px;overflow:hidden}
+.card{position:relative;background:var(--bg);padding:32px 30px 30px;display:flex;flex-direction:column;gap:14px;min-height:340px;overflow:hidden;transition:background .4s}
+.card::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg,rgba(255,107,44,.10),transparent);transform:translateY(-130%);transition:transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.card:hover{background:var(--s1)}
+.card:hover::before{transform:translateY(0)}
+.card.feat{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.feat-tx{display:flex;flex-direction:column;gap:14px}
+.feat-viz{position:relative;border:1px solid var(--ln);border-radius:14px;background:#0C0D10;overflow:hidden;min-height:260px;display:flex;flex-direction:column}
+.feat-viz svg{display:block;width:100%;height:auto;flex:1}
+.feat-viz .lbl{display:flex;justify-content:space-between;padding:10px 12px;font-size:10.5px;color:var(--mu);text-transform:uppercase;border-bottom:1px solid var(--ln)}
+.lc-odom{stroke-dasharray:1;stroke-dashoffset:1;animation:odom 9s ease-in-out infinite}
+@keyframes odom{0%{stroke-dashoffset:1;opacity:1}35%{stroke-dashoffset:0}80%{opacity:1;stroke-dashoffset:0}92%,100%{opacity:0;stroke-dashoffset:0}}
+.lc-fix{stroke-dasharray:1;stroke-dashoffset:1;animation:fix 9s ease-in-out infinite}
+@keyframes fix{0%,42%{stroke-dashoffset:1;opacity:1}72%{stroke-dashoffset:0}88%{opacity:1;stroke-dashoffset:0}96%,100%{opacity:0;stroke-dashoffset:0}}
+.lc-edge{opacity:0;animation:edge 9s ease infinite}
+@keyframes edge{0%,36%{opacity:0}40%,88%{opacity:1}94%,100%{opacity:0}}
+.lc-pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:pop 9s ease infinite}
+@keyframes pop{0%,71%{opacity:0;transform:scale(.4)}74%{opacity:1;transform:scale(1.25)}78%,88%{opacity:1;transform:scale(1)}94%,100%{opacity:0}}
+.card-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mu);text-transform:uppercase;gap:12px}
+.card-top .ix{color:var(--ac)}
+.card h3{font-size:24px;line-height:1.15;letter-spacing:-.025em;font-weight:500;margin:18px 0 0;text-wrap:balance}
+.card.feat h3{font-size:30px}
+.card p{margin:0;color:var(--mu);font-size:15.5px;text-wrap:pretty}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+.chip{font-size:11.5px;padding:5px 9px;border:1px solid var(--ln2);border-radius:999px;color:var(--mu);white-space:nowrap}
+
+/* the stack */
+.stack-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin:96px 0 28px}
+.stack-h h3{margin:0;font-size:clamp(26px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.stack{position:relative;display:flex;flex-direction:column;gap:14px;padding-left:72px}
+.bus{position:absolute;left:0;top:0;bottom:0;width:56px}
+.bus i{position:absolute;top:0;bottom:0;width:1px;background:var(--ln2)}
+.bus i:nth-child(1){left:12px}.bus i:nth-child(2){left:28px}.bus i:nth-child(3){left:44px}
+.bus b{position:absolute;width:7px;height:7px;background:var(--ac);bottom:0;animation:packet 3.2s linear infinite;box-shadow:0 0 12px rgba(255,107,44,.8)}
+.bus b:nth-child(4){left:9px}
+.bus b:nth-child(5){left:25px;animation-delay:1.1s;animation-duration:2.6s}
+.bus b:nth-child(6){left:41px;animation-delay:2s;animation-duration:3.8s}
+.bus b:nth-child(7){left:9px;animation-delay:1.7s}
+@keyframes packet{0%{bottom:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{bottom:100%;opacity:0}}
+.layer{position:relative;display:grid;grid-template-columns:250px minmax(0,1fr);gap:28px;align-items:center;padding:22px 24px;border:1px solid var(--ln);border-radius:16px;background:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/14px 14px,var(--s1);transition:border-color .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+.layer:hover{border-color:rgba(255,107,44,.5);transform:translateX(6px)}
+.layer::before{content:"";position:absolute;left:-72px;top:50%;width:72px;height:1px;background:var(--ln2)}
+.layer::after{content:"";position:absolute;left:-10px;top:calc(50% - 4px);width:8px;height:8px;border:1px solid var(--ac);background:var(--bg);transform:rotate(45deg)}
+.lname{display:flex;align-items:center;gap:16px}
+.lnum{font-size:44px;font-weight:500;letter-spacing:-.05em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+.layer:hover .lnum{-webkit-text-stroke-color:var(--ac)}
+.lname b{display:block;font-weight:500;font-size:18px;letter-spacing:-.01em}
+.lname div span{display:block;font-size:13px;color:var(--mu);line-height:1.35}
+.lname .lnum{flex:none;width:64px}
+.lchips{display:flex;flex-wrap:wrap;gap:8px}
+.lchip{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 13px;border:1px solid var(--ln2);border-radius:9px;font-size:14px;background:rgba(10,11,13,.6);transition:border-color .25s,color .25s,background .25s}
+.lchip::before{content:"";width:5px;height:5px;background:var(--mu);transition:background .25s}
+.lchip:hover{border-color:var(--ac);color:var(--ac)}
+.lchip:hover::before{background:var(--ac)}
+
+/* timeline */
+.tl{position:relative;display:flex;flex-direction:column}
+.tl-rail{position:absolute;left:230px;top:8px;bottom:8px;width:1px;background:var(--ln)}
+.tl-fill{position:absolute;inset:0;background:var(--ac);transform-origin:50% 0;transform:scaleY(1)}
+.job{display:grid;grid-template-columns:200px minmax(0,1fr);gap:61px;padding:0 0 64px;position:relative}
+.job:last-child{padding-bottom:0}
+.when{font-size:13px;color:var(--mu);text-transform:uppercase;padding-top:4px;line-height:1.6}
+.when b{display:block;color:var(--tx);font-weight:500}
+.dot{position:absolute;left:225px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--ac)}
+.job-cur .dot{background:var(--ac);box-shadow:0 0 0 6px var(--acd)}
+.job h3{font-size:28px;letter-spacing:-.025em;font-weight:500;margin:0;line-height:1.15;display:flex;align-items:center;gap:14px}
+.job h3{gap:18px}
+.clogo{width:64px;height:64px;flex:none;object-fit:contain}
+.job .role{color:var(--mu);margin:6px 0 0;font-size:16px}
+.job ul{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.job li{position:relative;padding-left:22px;color:#C4C7CD;font-size:16px;text-wrap:pretty}
+.job li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:1px;background:var(--ac)}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+.pc{grid-column:span 4;display:flex;flex-direction:column;text-decoration:none;color:var(--tx);border:1px solid var(--ln);border-radius:18px;overflow:hidden;background:var(--s1);transition:border-color .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+.pc:hover{border-color:var(--ln2);color:var(--tx);transform:translateY(-4px)}
+.pc.s7{grid-column:span 7}.pc.s5{grid-column:span 5}.pc.s6{grid-column:span 6}
+.pc .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0d0e10}
+.pc.s7 .im,.pc.s5 .im{aspect-ratio:auto;flex:1 1 auto;min-height:340px}
+.pc.s7 .bd,.pc.s5 .bd{flex:none}
+.pc .im img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.55) brightness(.88);transform:scale(1.02);transition:filter .7s,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.pc:hover .im img{filter:none;transform:scale(1.07)}
+.tagx{position:absolute;top:12px;left:12px;font-size:11px;text-transform:uppercase;background:rgba(10,11,13,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 10px;border-radius:8px;color:var(--tx)}
+.tagx.hl{background:var(--ac);color:#0A0B0D}
+.pc .bd{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pc h3{margin:0;font-size:21px;letter-spacing:-.02em;font-weight:500;line-height:1.2;display:flex;justify-content:space-between;gap:16px}
+.pc h3 svg{flex:none;color:var(--mu);transition:transform .3s,color .3s;margin-top:3px}
+.pc:hover h3 svg{transform:translate(3px,-3px);color:var(--ac)}
+.pc p{margin:0;color:var(--mu);font-size:15px;text-wrap:pretty}
+.more-list{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.more-list .mono{font-size:12px;color:var(--mu);text-transform:uppercase;margin-right:8px}
+.pill{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 15px;border:1px solid var(--ln2);border-radius:999px;color:var(--tx);text-decoration:none;font-size:14px;transition:border-color .3s,background .3s,color .3s,transform .3s}
+.pill:hover{border-color:var(--ac);color:var(--ac)}
+.pill svg{width:16px;height:16px;flex:none}
+.pill.plain{color:var(--mu)}
+
+/* film strip */
+.film{margin-top:96px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.film-h{display:flex;justify-content:space-between;gap:16px;font-size:12.5px;color:var(--mu);text-transform:uppercase;margin-bottom:20px}
+.ftrack{display:flex;gap:16px;width:max-content;animation:scrollx 70s linear infinite}
+.film:hover .ftrack{animation-play-state:paused}
+.ftrack.rev{animation-direction:reverse;animation-duration:80s}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+.fi{margin:0;flex:none;display:flex;flex-direction:column;gap:10px}
+.fi .fim{height:320px;border-radius:14px;overflow:hidden;border:1px solid var(--ln);background:var(--s1)}
+.fi img{height:100%;width:auto;display:block;filter:grayscale(.35);transition:filter .5s,transform .8s}
+.fi:hover img{filter:none;transform:scale(1.04)}
+.fi figcaption{font-size:12px;color:var(--mu);text-transform:uppercase;transition:color .3s}
+
+/* research */
+.papers{border-top:1px solid var(--ln)}
+.paper{position:relative;display:grid;grid-template-columns:64px minmax(0,1fr) 220px 40px;gap:24px;align-items:center;padding:30px 0;border-bottom:1px solid var(--ln);text-decoration:none;color:var(--tx);overflow:hidden}
+.paper::before{content:"";position:absolute;inset:0;background:var(--s1);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:0}
+.paper:hover{color:var(--tx)}
+.paper:hover::before{transform:scaleX(1)}
+.paper > *{position:relative;z-index:1}
+.paper .ix{font-size:13px;color:var(--ac)}
+.paper h3{margin:0;font-size:22px;letter-spacing:-.02em;font-weight:500;line-height:1.25;text-wrap:balance}
+.paper .au{margin:8px 0 0;color:var(--mu);font-size:14.5px}
+.paper .au u{text-decoration:none;color:var(--tx)}
+.paper .ven{font-size:12px;color:var(--mu);text-transform:uppercase;line-height:1.6}
+.paper .ven b{display:inline-block;margin-top:6px;color:#0A0B0D;background:var(--ac);padding:3px 8px;border-radius:6px;font-weight:500}
+.paper .ven b.new{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+.paper svg{color:var(--mu);transition:transform .3s,color .3s}
+.paper:hover svg{color:var(--ac);transform:translate(3px,-3px)}
+.honors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));column-gap:48px;margin-top:80px}
+.hon{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--ln);align-items:baseline;transition:background .3s}
+.hon .mono{font-size:12px;color:var(--ac);text-transform:uppercase}
+.hon b{display:block;font-size:17px;font-weight:500;letter-spacing:-.01em;line-height:1.3}
+.hon small{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:var(--mu);text-wrap:pretty}
+.case.is-open,.lb.is-open{opacity:1;visibility:visible;transform:none}
+.lb.is-open img{transform:none}
+.case{display:none}
+.case:target,.case.is-open{display:block;animation:caseIn .55s cubic-bezier(.16,1,.3,1)}
+@keyframes caseIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.lb{display:none}
+.lb:target,.lb.is-open{display:flex;animation:lbIn .35s ease}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+.lb .pill{position:relative;z-index:1}
+
+/* teach */
+.teach{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:end}
+.big{font-size:clamp(96px,14vw,200px);font-weight:500;letter-spacing:-.06em;line-height:.85}
+
+/* contact */
+.contact{padding:160px 0 0}
+.ct-h{font-size:clamp(48px,9vw,140px);line-height:.92;letter-spacing:-.05em;font-weight:500;margin:0}
+.mail{display:inline-flex;align-items:center;gap:16px;margin-top:48px;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;text-decoration:none;color:var(--tx);position:relative;padding-bottom:6px}
+.mail::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ac);transform-origin:100% 50%;transform:scaleX(.18);transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.mail:hover{color:var(--tx)}
+.mail:hover::after{transform:scaleX(1);transform-origin:0 50%}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.socials .pill:hover{transform:translateY(-2px)}
+.foot{margin-top:120px;border-top:1px solid var(--ln);padding:28px 0 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--mu);text-transform:uppercase}
+
+/* scroll driven */
+@supports (animation-timeline: view()){
+  .prog{animation:grow linear both;animation-timeline:scroll(root)}
+  @keyframes grow{to{transform:scaleX(1)}}
+  .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+  @keyframes rv{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  .cnt{animation:count linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+  .tl-fill{animation:fill linear both;animation-timeline:--tl;animation-range:entry 30% exit 60%}
+  .tl{view-timeline-name:--tl}
+  @keyframes fill{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  .dot{animation:dot linear both;animation-timeline:view();animation-range:entry 60% cover 40%}
+  @keyframes dot{from{transform:scale(.3);opacity:.3}to{transform:none;opacity:1}}
+  .pc .im img{animation:pz linear both;animation-timeline:view();animation-range:entry 0% cover 50%}
+  @keyframes pz{from{transform:scale(1.2)}to{transform:scale(1.02)}}
+  .pc:hover .im img{animation:none;transform:scale(1.07)}
+  .ct-h{animation:ct linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+  @keyframes ct{from{letter-spacing:.02em;opacity:.2}to{letter-spacing:-.05em;opacity:1}}
+  .brow:not(.bhead){animation:rowin linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+  @keyframes rowin{from{opacity:0;transform:rotateX(-80deg)}to{opacity:1;transform:none}}
+  .layer{animation:lay linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+  @keyframes lay{from{opacity:0;transform:translateY(70px) scale(.96)}to{opacity:1;transform:none}}
+  .layer:hover{transform:translateX(6px)}
+}
+
+/* responsive */
+@media (max-width:1080px){
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:40px;padding-top:140px}
+  .viz{max-width:420px}
+  .cross{display:none}
+  .about,.teach{grid-template-columns:minmax(0,1fr);gap:40px}
+  .portrait{max-width:420px}
+  .pwrap{max-width:420px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pc.s7,.pc.s5,.pc{grid-column:span 6}
+  .paper{grid-template-columns:48px minmax(0,1fr) 40px}
+  .paper .ven{grid-column:2}
+  .paper svg{grid-row:1}
+  .layer{grid-template-columns:minmax(0,1fr);gap:16px}
+}
+@media (max-width:760px){
+  .jp{font-size:16px}
+  .wrap{padding:0 20px}
+  .nav-links{display:none}
+  .hero{min-height:0}
+  .hud{inset:76px 12px 12px}
+  .hud-tl{left:22px;top:10px}.hud-tr{right:22px;top:10px}
+  .caps{display:none}
+  .hero-in{padding-top:130px;padding-bottom:56px}
+  .scrawl{margin-left:18%;font-size:23px}
+  .lede{font-size:17px}
+  .board-sec{padding-top:72px}
+  .board{padding:20px 16px 14px}
+  .brow{font-size:13px;gap:12px;grid-template-columns:13ch 10ch 10ch;min-width:0}
+  .brow > :nth-child(3){display:none}
+  .sec{padding-top:96px}
+  .sec-h{margin-bottom:36px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--ln)}
+  .pnote{right:8px;font-size:22px}
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .card.feat{grid-column:auto;grid-template-columns:minmax(0,1fr)}
+  .card{min-height:0;padding:28px 22px}
+  .stack{padding-left:36px}
+  .bus{width:28px}
+  .bus i:nth-child(3),.bus b:nth-child(6){display:none}
+  .layer::before{left:-36px;width:36px}
+  .layer{padding:18px}
+  .pc.s7,.pc.s5,.pc.s6,.pc{grid-column:span 12}
+  .pc.s7 .im,.pc.s5 .im{aspect-ratio:16/10;min-height:0;flex:none}
+  .tl-rail{left:5px}
+  .dot{left:0}
+  .job{grid-template-columns:minmax(0,1fr);gap:10px;padding-left:32px;padding-bottom:52px}
+  .job h3{font-size:22px;gap:12px}
+  .clogo{width:48px;height:48px}
+  .paper{grid-template-columns:36px minmax(0,1fr);gap:14px;padding:24px 0}
+  .paper svg{display:none}
+  .paper h3{font-size:19px}
+  .hon{grid-template-columns:minmax(0,1fr);gap:4px}
+  .fi .fim{height:220px}
+  .case-head,.case-body{grid-template-columns:minmax(0,1fr);gap:32px}
+  .case-body{margin-top:48px}
+  .case-body p{font-size:18px}
+  .case-bar{padding:0 12px}
+  .case-bar > span{display:none}
+  .case-in{padding-top:32px}
+  .lb-x{top:12px;right:12px}
+  .contact{padding-top:110px}
+  .foot{margin-top:80px}
+}
+@media (prefers-reduced-motion:reduce){
+  .jp *,.jp *::before,.jp *::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  .ftrack,.bot,.sweep,.ring,.plan,.flap.st,.bus b{animation:none !important}
+  .slides img:first-child{opacity:1}
+}
+</style>
+<style>html{scroll-behavior:smooth;background:#0A0B0D}.jp section[id],.jp [id]{scroll-margin-top:72px}</style>
 </head>
-
 <body>
-  <!-- Navigation Bar -->
-  <nav>
-    <div class="container">
-      <a href="#home" class="logo" style="font-size: 2em; text-decoration: none;">Jp Robotics</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#workshops">Workshops</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<div class="jp">
+<div class="prog" aria-hidden="true"></div>
 
-  <!-- Home Section -->
-  <section id="home" class="home-section">
-    <div class="background-slideshow"></div>
-    <div class="container">
-      <h1 class="animated-text">Hi, I'm Jerin Peter</h1>
-      <p class="animated-text">Robotics Engineer | Control & Navigation Specialist | ROS Developer | Maker</p>
-      <div class="social-links animated-text">
-        <a href="https://github.com/jerinpeter" target="_blank"><i class="fab fa-github"
-            style="font-size: 1.5em;"></i></a>
-        <a href="https://jerinpeter14.medium.com/" target="_blank"><i class="fab fa-medium-m"
-            style="font-size: 1.5em;"></i></a>
-        <a href="mailto:jerinpeter@gmail.com"><i class="fas fa-envelope" style="font-size: 1.5em;"></i></a>
-        <a href="https://linkedin.com/in/jerinpeter" target="_blank"><i class="fab fa-linkedin"
-            style="font-size: 1.5em;"></i></a>
-        <a href="https://www.youtube.com/@Jp_Robotics/videos" target="_blank"><i class="fab fa-youtube"
-            style="font-size: 1.5em;"></i></a>
-      </div>
-      <div class="resume-container animated-text">
-        <a href="https://drive.google.com/file/d/1uh0uZJYCMabrNe1ZgiYcL_7Oc0FJtWtU/view?usp=sharing" target="_blank"
-          class="resume-button">
-          <i class="fas fa-download"></i> Resume
-        </a>
-      </div>
-    </div>
-  </section>
+<header class="nav">
+<div class="wrap nav-in">
+<a class="logo" href="#top" aria-label="Jerin Peter, home"><span class="logo-mark mono">JP</span><span>Jerin Peter</span></a>
+<nav class="nav-links mono" aria-label="Primary">
+<a href="#about">About</a>
+<a href="#now">Now</a>
+<a href="#experience">Experience</a>
+<a href="#work">Work</a>
+<a href="#research">Research</a>
+<a href="#contact">Contact</a>
+</nav>
+<a class="btn btn-o btn-s" href="https://drive.google.com/file/d/1uh0uZJYCMabrNe1ZgiYcL_7Oc0FJtWtU/view?usp=sharing" target="_blank" rel="noopener">Résumé<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+</div>
+</header>
 
-  <!-- Resume Button -->
+<section class="hero" id="top">
+<div class="slides" aria-hidden="true">
+<img src="assets/v2/h-nova.jpg" alt="">
+<img src="assets/v2/h-outdoor.jpg" alt="">
+<img src="assets/v2/h-4wd.jpg" alt="">
+<img src="assets/v2/h-lab.jpg" alt="">
+<img src="assets/v2/h-bench.jpg" alt="">
+<img src="assets/v2/h-teach.jpg" alt="">
+</div>
+<div class="scrim" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+<div class="hud mono" aria-hidden="true">
+<span class="k k1"></span><span class="k k2"></span><span class="k k3"></span><span class="k k4"></span>
+<div class="caps">
+<span>Nova · indoor delivery robot</span>
+<span>Outdoor nav bot · RTK GPS</span>
+<span>4WD visual SLAM robot</span>
+<span>Lab bench · bring-up night</span>
+<span>The workbench</span>
+<span>Teaching the ROS nav stack</span>
+</div>
+</div>
+<div class="wrap hero-in">
+<div>
+<div class="kicker mono fade"><b>●</b><span>Robotics Engineer · San Francisco</span></div>
+<h1 class="h1">
+<span class="ln"><span>I take robots</span></span>
+<span class="ln"><span>from bare hardware</span></span>
+<span class="ln"><span>to <span class="serif acc">autonomy.</span></span></span>
+</h1>
+<div class="scrawl hand"><svg width="46" height="40" viewBox="0 0 46 40" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M42 36 C 30 34, 14 26, 8 6"></path><path d="M3 13 L8 5 L14 11"></path></svg><span>and back to the bench<br>when they fall over</span></div>
+<p class="lede fade d1">I bring up <b>humanoid and legged robots</b> end to end: sensors, networking and compute first, then SLAM, localization and Nav2, then the AI models that run on top. Currently at <b>OpenMind</b>.</p>
+<div class="cta fade d2">
+<a class="btn btn-a" href="#work">See the work<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg></a>
+<a class="ico" href="https://linkedin.com/in/jerinpeter" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"></path></svg></a>
+<a class="ico" href="https://github.com/jerinpeter" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg></a>
+<a class="ico" href="https://www.youtube.com/@Jp_Robotics/videos" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.75 15.5v-7l6 3.5z"></path></svg></a>
+<a class="ico" href="mailto:jerinpeter@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+</div>
+</div>
 
+</div>
+</section>
 
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container black-box">
-      <h2>About Me</h2>
-      <p>
-        I am a Robotics Engineer with a Master's degree from the University of California, Riverside, specializing in
-        control and navigation. I have a strong background in robotics, automation, and sensor fusion, with hands-on
-        experience in ROS, Python, C++, and embedded systems.
-      </p>
-    </div>
-  </section>
+<section class="board-sec" aria-label="Robot platforms">
+<div class="wrap">
+<div class="board rv">
+<div class="board-h">
+<h2>The fleet I have <span class="serif acc">brought up.</span></h2>
+<span class="mono">OpenMind · San Francisco · Bay 01</span>
+</div>
+<div class="board-scroll">
+<div class="brow bhead"><span>Unit</span><span>Class</span><span>What I did</span><span>Status</span></div>
+<div class="brow"><span class="flap">Unitree G1</span><span class="flap">Humanoid</span><span class="flap">SLAM · Nav2 · Geofence</span><span class="flap st">Walking</span></div>
+<div class="brow"><span class="flap">Lynx M20 Pro</span><span class="flap">Quadruped</span><span class="flap">ICP loc · SLAM · Loop closure · Nav</span><span class="flap st">On patrol</span></div>
+<div class="brow"><span class="flap">Unitree Go2</span><span class="flap">Quadruped</span><span class="flap">Hybrid localization</span><span class="flap st">Trotting</span></div>
+<div class="brow"><span class="flap">LimX Tron1</span><span class="flap">Biped</span><span class="flap">Bring-up · DDS</span><span class="flap st">Balancing</span></div>
+<div class="brow"><span class="flap">AgiBot</span><span class="flap">Humanoid</span><span class="flap">Bring-up</span><span class="flap st">Waving</span></div>
+<div class="brow"><span class="flap">Booster K1</span><span class="flap">Humanoid</span><span class="flap">Bring-up</span><span class="flap st">Kicking</span></div>
+<div class="brow"><span class="flap">Jetson Thor</span><span class="flap">Compute</span><span class="flap">Harness · DDS bridge</span><span class="flap st">Thinking</span></div>
+<div class="brow"><span class="flap">AGX Orin · RPi</span><span class="flap">Compute</span><span class="flap">Onboard compute</span><span class="flap st">Crunching</span></div>
+</div>
+<div class="board-f mono"><span>All times local · statuses are mostly true</span><span>Updated 2026</span></div>
+</div>
+</div>
+</section>
 
-  <!-- Education Section -->
-  <section id="education" class="education-section">
-    <div class="container">
-      <h2>Education</h2>
-      <div class="education-list">
-        <div class="education-item">
-          <div class="education-header">
-            <h3>University of California, Riverside</h3>
-            <img src="assets/images/education/ucr.png" alt="University of California, Riverside Logo">
-          </div>
-          <p>MS in Robotics with focus on control & navigation</p>
-          <p>CGPA: 3.88 / 4.0</p>
-          <p>Courses: Programming Practical Robots, Kinematics & Dynamics of Robots, Reinforcement Learning, Optimal
-            Control & Estimation, Computational Methods for Robotics, Fundamentals of Machine Learning, Foundations of
-            Robotics, Linear Control Systems</p>
-        </div>
+<section class="sec" id="about">
+<div class="wrap">
+<div class="eyebrow mono rv">01 · About</div>
+<div class="about">
+<div class="pwrap rv">
+<figure class="portrait">
+<img src="assets/v2/me-ucr.jpg" alt="Jerin Peter at UC Riverside on graduation day" loading="lazy">
+<figcaption class="cap mono"><span>UC Riverside</span><span>M.S. Robotics</span></figcaption>
+</figure>
+<div class="pnote hand" aria-hidden="true"><span>that's me,</span><span>graduation day!</span><svg width="60" height="34" viewBox="0 0 60 34" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M56 4 C 44 24, 24 30, 6 26"></path><path d="M12 20 L5 26 L13 31"></path></svg></div>
+</div>
+<div>
+<p class="statement rv">I live at the seam between hardware and software. <em>Hand me a new robot in a crate and I will get it sensing, localizing and navigating, then put the intelligence on top.</em></p>
+<p class="body rv">Today that means bringing up humanoid and legged platforms at OpenMind and wiring foundation models into real autonomy. Before that I spent years building wheeled robots from the chassis up, published papers about them, and taught ROS to anyone who would sit still long enough.</p>
+<div class="stats rv">
+<div class="stat"><span class="num"><span class="cnt to6"></span>+</span><span class="l mono">robot platforms brought up</span></div>
+<div class="stat"><span class="num"><span class="cnt to4"></span></span><span class="l mono">papers, 3 first author</span></div>
+<div class="stat"><span class="num"><span class="cnt to4"></span></span><span class="l mono">first place wins</span></div>
+<div class="stat"><span class="num"><span class="cnt to15"></span>+</span><span class="l mono">workshops taught</span></div>
+</div>
+<div class="edu rv">
+<div class="edu-row"><img class="elogo" src="assets/v2/logo-ucr.png" alt="UC Riverside logo" loading="lazy"><span><b>University of California, Riverside</b> <span class="mu">· M.S. Robotics, control and navigation</span></span><span class="mono">GPA 3.88</span></div>
+<div class="edu-row"><img class="elogo" src="assets/v2/logo-rset.png" alt="Rajagiri School of Engineering and Technology logo" loading="lazy"><span><b>Rajagiri School of Engineering &amp; Technology</b> <span class="mu">· B.Tech Electronics and Communication</span></span><span class="mono">India</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-        <div class="education-item">
-          <div class="education-header">
-            <h3>Rajagiri School of Engineering & Technology</h3>
-            <img src="assets/images/education/rset.jpeg" alt="Rajagiri School of Engineering & Technology Logo">
-          </div>
-          <p>Undergraduate in Electronics & Communication Engineering</p>
-          <p>CGPA: 8.14 / 10.0</p>
-          <p>Courses: Robotics and Industrial Automation, Machine Learning, Real Time Operating Systems, Control
-            Systems, Digital Signal Processing</p>
-        </div>
+<section class="sec" id="now">
+<div class="wrap">
+<div class="sec-h">
+<div>
+<div class="eyebrow mono rv">02 · Now at OpenMind</div>
+<h2 class="h2 rv">Systems I build for robots that leave the lab.</h2>
+</div>
+<p class="side-note rv">Selected work on the OM1 and BrainPack platform, across humanoid, quadruped and biped robots.</p>
+</div>
+<div class="cards rv">
+<article class="card feat">
+<div class="feat-tx">
+<div class="card-top mono"><span class="ix">02.1</span><span>Deep Robotics Lynx M20 Pro</span></div>
+<h3>Production ready navigation on a quadruped</h3>
+<p>Built the whole navigation stack: ICP based localization and SLAM tuned until it stopped surprising anyone, loop closure so long runs stay consistent, and Nav2 tuned end to end. Production ready for real autonomous work like delivery and inspection, not just demos.</p>
+<div class="chips mono"><span class="chip">ICP localization</span><span class="chip">SLAM</span><span class="chip">Loop closure</span><span class="chip">Nav2</span></div>
+</div>
+<div class="feat-viz" aria-hidden="true">
+<div class="lbl mono"><span>Pose graph</span><span class="acc">Loop closure</span></div>
+<svg viewBox="0 0 360 230">
+<g fill="rgba(255,255,255,0.22)">
+<circle cx="30" cy="40" r="1.2"></circle><circle cx="70" cy="22" r="1.2"></circle><circle cx="140" cy="16" r="1.2"></circle><circle cx="220" cy="20" r="1.2"></circle><circle cx="300" cy="40" r="1.2"></circle><circle cx="338" cy="96" r="1.2"></circle><circle cx="342" cy="150" r="1.2"></circle><circle cx="300" cy="206" r="1.2"></circle><circle cx="210" cy="214" r="1.2"></circle><circle cx="120" cy="212" r="1.2"></circle><circle cx="44" cy="196" r="1.2"></circle><circle cx="20" cy="130" r="1.2"></circle><circle cx="96" cy="110" r="1.2"></circle><circle cx="180" cy="96" r="1.2"></circle><circle cx="250" cy="130" r="1.2"></circle><circle cx="160" cy="150" r="1.2"></circle>
+</g>
+<path class="lc-odom" pathLength="1" d="M50 120 C 50 60, 110 40, 180 44 S 316 70, 314 126 S 250 196, 172 192 S 80 170, 74 104" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-dasharray="1" stroke-linecap="round"></path>
+<path class="lc-edge" d="M74 104 L50 120" stroke="#FF6B2C" stroke-width="1.2" stroke-dasharray="3 3"></path>
+<path class="lc-fix" pathLength="1" d="M50 120 C 50 60, 110 40, 180 44 S 316 70, 314 126 S 250 196, 172 192 S 58 178, 50 120" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round"></path>
+<circle cx="50" cy="120" r="4" fill="#0A0B0D" stroke="#EDEEF0" stroke-width="1.5"></circle>
+<circle class="lc-pop" cx="50" cy="120" r="12" fill="none" stroke="#FF6B2C" stroke-width="1.5"></circle>
+<text x="62" y="146" fill="rgba(255,255,255,0.55)" font-size="10" font-family="Geist Mono, monospace">START</text>
+<text x="86" y="100" fill="rgba(255,255,255,0.45)" font-size="10" font-family="Geist Mono, monospace">drift</text>
+</svg>
+</div>
+</article>
+<article class="card">
+<div class="card-top mono"><span class="ix">02.2</span><span>Unitree Go2</span></div>
+<div class="mini" aria-hidden="true">
+<div class="mini-l mono"><span>CSM · AMCL · VPR</span><span class="hs"><b>Lost</b><b>Searching</b><b>Converging</b><b>Localized</b></span></div>
+<svg viewBox="0 0 300 130">
+<path d="M18 16 H282 V114 H176 V80 H128 V114 H18 Z" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"></path>
+<path d="M222 16 V54" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"></path>
+<g class="pa" fill="rgba(237,238,240,0.75)">
+<circle cx="40" cy="30" r="1.8"></circle><circle cx="160" cy="34" r="1.8"></circle><circle cx="70" cy="92" r="1.8"></circle><circle cx="150" cy="96" r="1.8"></circle><circle cx="34" cy="70" r="1.8"></circle><circle cx="190" cy="56" r="1.8"></circle><circle cx="120" cy="26" r="1.8"></circle><circle cx="58" cy="50" r="1.8"></circle><circle cx="140" cy="66" r="1.8"></circle><circle cx="90" cy="102" r="1.8"></circle><circle cx="250" cy="40" r="1.8"></circle><circle cx="210" cy="96" r="1.8"></circle>
+</g>
+<g class="pb" fill="rgba(237,238,240,0.5)">
+<circle cx="80" cy="22" r="1.6"></circle><circle cx="174" cy="44" r="1.6"></circle><circle cx="44" cy="100" r="1.6"></circle><circle cx="118" cy="88" r="1.6"></circle><circle cx="26" cy="44" r="1.6"></circle><circle cx="236" cy="70" r="1.6"></circle><circle cx="100" cy="40" r="1.6"></circle><circle cx="62" cy="76" r="1.6"></circle><circle cx="168" cy="80" r="1.6"></circle><circle cx="268" cy="100" r="1.6"></circle>
+</g>
+<g class="scn" fill="#FF6B2C">
+<circle cx="60" cy="16" r="2"></circle><circle cx="80" cy="16" r="2"></circle><circle cx="100" cy="16" r="2"></circle><circle cx="120" cy="16" r="2"></circle><circle cx="140" cy="16" r="2"></circle>
+<circle cx="18" cy="36" r="2"></circle><circle cx="18" cy="56" r="2"></circle><circle cx="18" cy="76" r="2"></circle><circle cx="18" cy="96" r="2"></circle>
+<circle cx="128" cy="86" r="2"></circle><circle cx="128" cy="104" r="2"></circle><circle cx="146" cy="80" r="2"></circle><circle cx="164" cy="80" r="2"></circle>
+</g>
+<rect x="92" y="52" width="16" height="12" rx="3" fill="#EDEEF0"></rect>
+<path d="M102 54.5 L107 58 L102 61.5 Z" fill="#0A0B0D"></path>
+<g class="vpr">
+<rect x="236" y="70" width="38" height="28" rx="4" fill="#0A0B0D" stroke="#FF6B2C" stroke-width="1.2"></rect>
+<path d="M246 84 l5 5 l10 -10" fill="none" stroke="#FF6B2C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="236" y="64" fill="#FF6B2C" font-size="8.5" font-family="Geist Mono, monospace">VPR MATCH</text>
+</g>
+</svg>
+</div>
+<h3>Hybrid localization that knows when it is lost</h3>
+<p>A Numba accelerated correlative scan matcher fused with Nav2 AMCL and visual place recognition voting. A five state health monitor decides who owns the map to odom transform.</p>
+<div class="chips mono"><span class="chip">Python</span><span class="chip">Numba</span><span class="chip">AMCL</span><span class="chip">VPR</span></div>
+</article>
+<article class="card">
+<div class="card-top mono"><span class="ix">02.3</span><span>Unitree G1</span></div>
+<div class="mini" aria-hidden="true">
+<div class="mini-l mono"><span>RTAB-Map · Nav2</span><span class="acc">Mapping</span></div>
+<svg viewBox="0 0 300 130">
+<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0 V6" stroke="rgba(255,107,44,0.5)" stroke-width="2"></path></pattern></defs>
+<path class="draw wall" pathLength="1" d="M10 26 H110 V12 H190 V26 H290" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.8"></path>
+<path class="draw wall" pathLength="1" d="M10 112 H90 V124 H150 V112 H290" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.8"></path>
+<g class="nogo">
+<rect x="168" y="62" width="62" height="40" fill="url(#hatch)" stroke="#FF6B2C" stroke-width="1" stroke-dasharray="3 3"></rect>
+<text x="176" y="58" fill="#FF6B2C" font-size="8.5" font-family="Geist Mono, monospace">NO GO</text>
+</g>
+<path class="draw trail" pathLength="1" d="M22 74 H150 L176 46 H226 L254 74 H282" fill="none" stroke="#FF6B2C" stroke-width="1.2" stroke-dasharray="1"></path>
+<g class="hum">
+<path d="M4 -8 L34 -20 A36 36 0 0 1 34 4 Z" fill="rgba(255,107,44,0.14)"></path>
+<g class="bob">
+<circle cx="0" cy="-12" r="4.5" fill="#EDEEF0"></circle>
+<rect x="-4" y="-6" width="8" height="11" rx="2.5" fill="#EDEEF0"></rect>
+<path d="M-2 5 L-3 11 M2 5 L3 11" stroke="#EDEEF0" stroke-width="2" stroke-linecap="round"></path>
+</g>
+</g>
+</svg>
+</div>
+<h3>Humanoid SLAM, navigation and geofencing</h3>
+<p>RTAB-Map on a Livox Mid-360 with persistent maps and Nav2 in localization mode. Tuned MPPI and SmacPlannerHybrid, and added GeoJSON no go zones for the person follower.</p>
+<div class="chips mono"><span class="chip">RTAB-Map</span><span class="chip">Nav2</span><span class="chip">MPPI</span><span class="chip">Shapely</span></div>
+</article>
+<article class="card">
+<div class="card-top mono"><span class="ix">02.4</span><span>Thor · Orin · RPi</span></div>
+<div class="mini" aria-hidden="true">
+<div class="mini-l mono"><span>Harness → DDS</span><span class="acc linkup">Link up</span></div>
+<svg viewBox="0 0 300 130">
+<defs><clipPath id="scopeclip"><rect x="112" y="84" width="176" height="38"></rect></clipPath></defs>
+<rect x="14" y="10" width="44" height="112" rx="6" fill="#16181C" stroke="rgba(255,255,255,0.3)"></rect>
+<circle class="pin" cx="36" cy="24" r="4"></circle><circle class="pin" cx="36" cy="44" r="4" style="animation-delay: .35s"></circle><circle class="pin" cx="36" cy="64" r="4" style="animation-delay: .7s"></circle><circle class="pin" cx="36" cy="84" r="4" style="animation-delay: 1.05s"></circle><circle class="pin" cx="36" cy="104" r="4" style="animation-delay: 1.4s"></circle>
+<g fill="none" stroke="#FF6B2C" stroke-width="1.5" stroke-linejoin="round">
+<path class="draw tr" pathLength="1" d="M40 24 H120 L130 18 H204"></path>
+<path class="draw tr" pathLength="1" d="M40 44 H110 L124 30 H204" style="animation-delay: .35s"></path>
+<path class="draw tr" pathLength="1" d="M40 64 H140 L156 48 H204" style="animation-delay: .7s"></path>
+<path class="draw tr" pathLength="1" d="M40 84 H86 V66 H204" style="animation-delay: 1.05s"></path>
+<path class="draw tr" pathLength="1" d="M40 104 H96 V74 H204" style="animation-delay: 1.4s"></path>
+</g>
+<rect x="204" y="10" width="84" height="66" rx="6" fill="#16181C" stroke="rgba(255,255,255,0.3)"></rect>
+<text x="216" y="36" fill="#EDEEF0" font-size="11" font-family="Geist Mono, monospace">COMPUTE</text>
+<text x="216" y="52" fill="rgba(255,255,255,0.5)" font-size="8.5" font-family="Geist Mono, monospace">ROS 2 · DDS</text>
+<rect x="112" y="84" width="176" height="38" rx="4" fill="#0A0B0D" stroke="rgba(255,255,255,0.18)"></rect>
+<g clip-path="url(#scopeclip)">
+<path class="wave" d="M112 103 h12 l0 -9 h12 l0 9 h12 l0 9 h12 l0 -9 h12 l0 -9 h12 l0 9 h12 l0 9 h12 l0 -9 h12 l0 -9 h12 l0 9 h12 l0 9 h12 l0 -9 h12 l0 -9 h12 l0 9 h12 l0 9 h12 l0 -9 h12 l0 -9 h12 l0 9 h12 l0 9 h12 l0 -9 h12 l0 -9 h12" fill="none" stroke="#7FE0A8" stroke-width="1.4"></path>
+</g>
+<text x="118" y="93" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Geist Mono, monospace">MLT-3</text>
+</svg>
+</div>
+<h3>Hardware bring-up from the pinout up</h3>
+<p>Decoded proprietary robot harnesses, crimped the network, and bridged Unitree and LimX robots to Jetson Thor, AGX Orin and Raspberry Pi compute over DDS. Traced a LiDAR cable fault with an oscilloscope.</p>
+<div class="chips mono"><span class="chip">DDS</span><span class="chip">Zenoh</span><span class="chip">Ethernet</span><span class="chip">Oscilloscope</span></div>
+</article>
+<article class="card">
+<div class="card-top mono"><span class="ix">02.5</span><span>OM1 · BrainPack</span></div>
+<div class="mini fm" aria-hidden="true">
+<div class="say mono"><span class="who">You</span><span class="type">go check the kitchen</span></div>
+<div class="flow mono"><span class="node">VLM</span><i></i><span class="node">LLM</span><i></i><span class="tok">navigate("kitchen")</span></div>
+<svg viewBox="0 0 300 74">
+<path d="M4 4 H180 V40 M210 40 H296 M4 4 V70 H296 V4 H210" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"></path>
+<path class="draw fpath" pathLength="1" d="M34 54 H120 Q150 54 160 34 Q170 20 196 20 H252" fill="none" stroke="#FF6B2C" stroke-width="1.6" stroke-dasharray="1"></path>
+<rect x="26" y="48" width="16" height="12" rx="3" fill="#EDEEF0"></rect>
+<g class="goal"><circle cx="252" cy="20" r="6" fill="#FF6B2C"></circle><circle cx="252" cy="20" r="11" fill="none" stroke="#FF6B2C" stroke-width="1"></circle></g>
+<text x="224" y="52" fill="rgba(255,255,255,0.5)" font-size="8.5" font-family="Geist Mono, monospace">KITCHEN</text>
+</svg>
+</div>
+<h3>Foundation models on the robot</h3>
+<p>Connecting LLM, VLM and VLA models to autonomous behavior, and running local inference on Jetson Orin, Thor and DGX Spark with vLLM and llama.cpp.</p>
+<div class="chips mono"><span class="chip">LLM</span><span class="chip">VLM</span><span class="chip">vLLM</span><span class="chip">Edge AI</span></div>
+</article>
+</div>
 
-        <div class="education-item">
-          <div class="education-header">
-            <h3>Cochin Refineries School</h3>
-            <img src="assets/images/education/crs.png" alt="Cochin Refineries School Logo">
-          </div>
-          <p>High School (12th Grade) with Major in Computer Science</p>
-          <p>CGPA: 8.60 / 10.0</p>
-          <p>Courses: Computer Science (C++, SQL), Mathematics, Physics, Chemistry</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <i class="fas fa-code"></i>
-          <h3>Programming</h3>
-          <p>C/C++, Python, Embedded C, MATLAB</p>
-        </div>
-        <div class="skill-card">
-          <i class="fas fa-brain"></i>
-          <h3>AI &amp; Machine Learning</h3>
-          <p>Deep Learning, Reinforcement Learning, Computer Vision, TensorFlow, PyTorch, OpenAI Gym</p>
-        </div>
-        <div class="skill-card">
-          <i class="fas fa-robot"></i>
-          <h3>Robotics &amp; Perception</h3>
-          <p>ROS2, IsaacSim, MoveIt, SLAM (RTAB-Map, GMapping), OpenCV, PCL</p>
-        </div>
-        <div class="skill-card">
-          <i class="fas fa-compass"></i>
-          <h3>Control &amp; Navigation</h3>
-          <p>Path Planning, Kalman Filters, PID, MPC Control</p>
-        </div>
-        <div class="skill-card">
-          <i class="fas fa-microchip"></i>
-          <h3>Embedded &amp; Systems</h3>
-          <p>RTOS, PlatformIO, STM32, ESP32, Raspberry Pi, Jetson Nano</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="stack-h">
+<h3 class="rv">The stack, <span class="serif acc">bottom to top.</span></h3>
+<p class="side-note rv">I work every layer, from the crimp tool to the language model.</p>
+</div>
+<div class="stack">
+<div class="bus" aria-hidden="true"><i></i><i></i><i></i><b></b><b></b><b></b><b></b></div>
+<div class="layer">
+<div class="lname"><span class="lnum mono">L4</span><div><b>Intelligence</b><span>What the robot decides</span></div></div>
+<div class="lchips mono"><span class="lchip">LLM · VLM · VLA</span><span class="lchip">vLLM</span><span class="lchip">llama.cpp</span><span class="lchip">PyTorch</span><span class="lchip">OpenCV</span><span class="lchip">Isaac Sim</span></div>
+</div>
+<div class="layer">
+<div class="lname"><span class="lnum mono">L3</span><div><b>Autonomy</b><span>Where am I, where to go</span></div></div>
+<div class="lchips mono"><span class="lchip">Nav2</span><span class="lchip">MPPI</span><span class="lchip">SmacPlanner</span><span class="lchip">RTAB-Map</span><span class="lchip">SLAM Toolbox</span><span class="lchip">FAST-LIO</span><span class="lchip">ICP</span><span class="lchip">AMCL</span><span class="lchip">EKF</span><span class="lchip">RTK GPS</span><span class="lchip">Open-RMF</span></div>
+</div>
+<div class="layer">
+<div class="lname"><span class="lnum mono">L2</span><div><b>Middleware</b><span>How the parts talk</span></div></div>
+<div class="lchips mono"><span class="lchip">ROS 2</span><span class="lchip">Zenoh</span><span class="lchip">Cyclone DDS</span><span class="lchip">Python</span><span class="lchip">Numba</span><span class="lchip">Docker</span><span class="lchip">Flask</span><span class="lchip">Foxglove</span><span class="lchip">Gazebo</span></div>
+</div>
+<div class="layer">
+<div class="lname"><span class="lnum mono">L1</span><div><b>Hardware</b><span>What I crimp, wire and probe</span></div></div>
+<div class="lchips mono"><span class="lchip">Jetson Thor</span><span class="lchip">AGX Orin</span><span class="lchip">Raspberry Pi</span><span class="lchip">Livox Mid-360</span><span class="lchip">RealSense</span><span class="lchip">RPLidar</span><span class="lchip">ESP32</span><span class="lchip">STM32</span><span class="lchip">Teensy</span><span class="lchip">I2C · SPI · UART · CAN</span></div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <!-- Project 1: Multi-Robot Navigation using RMF and TurtleBot3 -->
-        <a href="tb3_rmf_multirobotnav.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/tb3_rmf_multirobotnav/sim.png"
-              alt="Multi-Robot Navigation using RMF and TurtleBot3"
-              style="height:100%; width: 100%;; object-fit: cover;">
-            <h3>Multi-Robot Navigation using Open-RMF and TurtleBot3</h3>
-            <p>Coordinated fleet management and navigation in a using Open-RMF, ROS 2, and TurtleBot3 robots.
-              Demonstrates task scheduling, traffic management, and collision-free delivery in complex indoor layouts.
-            </p>
-            <ul class="project-skills">
-              <li>RMF</li>
-              <li>ROS 2</li>
-              <li>Multi-Robot Coordination</li>
-              <li>Gazebo Simulation</li>
-              <li>Fleet Management</li>
-              <li>Navigation</li>
-            </ul>
-          </div>
-        </a>
+<section class="sec" id="experience">
+<div class="wrap">
+<div class="sec-h">
+<div>
+<div class="eyebrow mono rv">03 · Experience</div>
+<h2 class="h2 rv">Six years of making robots move.</h2>
+</div>
+</div>
+<div class="tl">
+<div class="tl-rail" aria-hidden="true"><div class="tl-fill"></div></div>
 
-        <!-- Project: Multi-Map Navigation with AR100 AMR -->
-        <a href="ar100_multimap_nav.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/ar100_multimap_nav/video.png"
-              alt="Multi-Map Navigation with AR100 AMR"
-              style="height:100%; width: 100%; object-fit: cover;">
-            <h3>Multi-Map Navigation with AR100 AMR</h3>
-            <p>Wormhole-based autonomous navigation across multiple rooms using the ANSCER AR100 robot. Features dynamic map switching, SQLite-based route planning, and seamless transitions between different mapped environments.</p>
-            <ul class="project-skills">
-              <li>ROS</li>
-              <li>C++</li>
-              <li>Multi-Map Navigation</li>
-              <li>SQLite</li>
-              <li>Action Server</li>
-              <li>Gazebo Simulation</li>
-            </ul>
-          </div>
-        </a>
+<div class="job job-cur rv">
+<span class="dot" aria-hidden="true"></span>
+<div class="when mono"><b>Sep 2025 · Now</b>San Francisco</div>
+<div>
+<h3><img class="clogo" src="assets/v2/co-openmind.png" alt="" loading="lazy">OpenMind AGI</h3>
+<p class="role">Robotics Engineer</p>
+<ul>
+<li>Bring up humanoid and legged robots (Unitree G1 and Go2, LimX Tron1, Deep Robotics Lynx M20 Pro) on the OM1 and BrainPack platform: sensors, DDS networking and onboard compute (Jetson Thor, AGX Orin, Raspberry Pi).</li>
+<li>Made Lynx M20 Pro navigation production ready: ICP localization, SLAM with loop closure, and end to end Nav2 tuning for delivery and inspection use cases.</li>
+<li>Built a hybrid localization stack for the Go2 and RTAB-Map SLAM with Nav2 for the G1.</li>
+<li>Integrate LLM, VLM and VLA models with autonomous navigation and behavior on real hardware.</li>
+</ul>
+</div>
+</div>
 
-        <!-- Project 1 -->
+<div class="job rv">
+<span class="dot" aria-hidden="true"></span>
+<div class="when mono"><b>2024 · 2025</b>Riverside, CA</div>
+<div>
+<h3><img class="clogo" src="assets/v2/logo-ucr.png" alt="" loading="lazy">University of California, Riverside</h3>
+<p class="role">M.S. Robotics · Teaching Assistant · Summer camp instructor</p>
+<ul>
+<li>Teaching Assistant: ran the lab sessions for Circuits and Electronics (EE005) and the discussion sessions teaching MATLAB for EE020B, Linear Methods for Engineering Analysis and Design.</li>
+<li>Designed the curriculum and taught ROS fundamentals at the BCOE Robotics Summer Camp.</li>
+<li>Coursework in optimal control and estimation, kinematics and dynamics, and reinforcement learning.</li>
+</ul>
+</div>
+</div>
 
-        <a href="autonomous_indoor_delivery_robot.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/nova.jpg" alt="Autonomous Indoor Delivery Robot">
-            <h3>Autonomous Indoor Delivery Robot</h3>
-            <p>Developed an autonomous indoor delivery robot using ROS for precise path planning. Integrated sensor
-              fusion (Lidar, Wheel odom, IMU) with EKF for high accuracy localization. Designed a PyQT-based GUI for
-              easy user interaction and voice control.</p>
-            <ul class="project-skills">
-              <li>ROS</li>
-              <li>Path Planning</li>
-              <li>Sensor Fusion</li>
-              <li>Extended Kalman Filter</li>
-              <li>PyQT GUI</li>
-              <li>Voice Control</li>
-              <li>Interactive</li>
-              <li>Solid Works</li>
-            </ul>
-          </div>
-        </a>
+<div class="job rv">
+<span class="dot" aria-hidden="true"></span>
+<div class="when mono"><b>Jul 2023 · Feb 2024</b>Palakkad, India</div>
+<div>
+<h3><img class="clogo" src="assets/v2/co-iptif.png" alt="" loading="lazy">IIT Palakkad Technology IHub Foundation</h3>
+<p class="role">Project Engineer, Mobile Robotics</p>
+<ul>
+<li>Built a modular ROS 2 control stack with Nav2 integration and Open-RMF fleet coordination.</li>
+<li>Fused RTK GPS, IMU and wheel odometry with an EKF for outdoor navigation.</li>
+</ul>
+</div>
+</div>
 
-        <!-- Project 2 -->
-        <a href="plate_cleaning_arm.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/arm.gif" alt="Plate Cleaning Robot">
-            <h3>Plate Cleaning Robot</h3>
-            <p>Developed an automated plate-cleaning system with an ABB IRB 120 robotic arm using inverse kinematics and
-              PD control for spiral motions. It features efficient trajectory planning and enhanced reliability through
-              random plate positioning and robust task space design.</p>
-            <ul class="project-skills">
-              <li>Matlab</li>
-              <li>ABB IRB 120</li>
-              <li>Inverse Kinematics</li>
-              <li>PD Control</li>
-              <li>Trajectory Planning</li>
-              <li>Automation</li>
-            </ul>
-          </div>
-        </a>
+<div class="job rv">
+<span class="dot" aria-hidden="true"></span>
+<div class="when mono"><b>Aug 2022 · Jun 2023</b>Kochi, India</div>
+<div>
+<h3><img class="clogo" src="assets/v2/co-asimov.png" alt="" loading="lazy">Asimov Robotics</h3>
+<p class="role">Software Intern, ROS Developer</p>
+<ul>
+<li>Migrated legacy ROS nodes to ROS Noetic on Ubuntu 20.04, with documentation.</li>
+<li>Developed sensor fusion workflows and calibration tools.</li>
+</ul>
+</div>
+</div>
 
-        <!-- Project 3 -->
-        <div class="project-card">
-          <img src="assets/images/projects/multimodal.png" alt="Multimodal Calibration Dataset">
-          <h3>Multimodal Calibration Dataset</h3>
-          <p>A versatile multimodal calibration platform that uses robotic arms and a high-precision MoCap system to
-            collect diverse extrinsic data between cameras and LiDAR sensors across both static and dynamic
-            configurations.</p>
-          <ul class="project-skills">
-            <li>ROS</li>
-            <li>Camera-LiDAR Calibration</li>
-            <li>Manipulation</li>
-            <li>MoCap</li>
-            <li>Extrinsic Calibration</li>
-            <li>Data Collection</li>
-          </ul>
-        </div>
-        <!-- Project 4 -->
-        <a href="4wd_outdoor_nav.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/4wd.jpg" alt="4WD Outdoor Navigation Robot">
-            <h3>4WD Outdoor Navigation Robot</h3>
-            <p>Developed a 4-wheel drive robot with a 3D camera for real-time appearance-based mapping and navigation in
-              GPS-denied environments.</p>
+<div class="job rv">
+<span class="dot" aria-hidden="true"></span>
+<div class="when mono"><b>Aug 2021 · Oct 2021</b>Hyderabad, India</div>
+<div>
+<h3><img class="clogo" src="assets/v2/co-tihan.png" alt="" loading="lazy">TiHAN, IIT Hyderabad</h3>
+<p class="role">Research Assistant</p>
+<ul>
+<li>Autonomous ground vehicle research and dataset collection tools for navigation stacks.</li>
+</ul>
+</div>
+</div>
 
-            <ul class="project-skills">
-              <li>3D Vision</li>
-              <li>Appearance-based Mapping</li>
-              <li>Real-Time Navigation</li>
-              <li>GPS-Denied Environments</li>
-              <li>Visual inertial odometry</li>
-            </ul>
-          </div>
-        </a>
+<div class="job rv">
+<span class="dot" aria-hidden="true"></span>
+<div class="when mono"><b>Feb 2020 · Sep 2020</b>India</div>
+<div>
+<h3><img class="clogo" src="assets/v2/co-aug.png" alt="" loading="lazy">Augsense Labs</h3>
+<p class="role">Software Intern, ROS Developer</p>
+<ul>
+<li>Research and development on SLAM and navigation using ROS.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-        <!-- Project 5 -->
-        <a href="dqn.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/rl.png" alt="Autonomous Navigation of a Mecanum Robot Using DQN in ROS 2">
-            <h3>Autonomous Navigation of a Mecanum Robot Using DQN in ROS 2</h3>
-            <p>This project implements DQN in ROS2 for autonomous navigation of a mecanum-wheeled robot. The robot
-              learns
-              to reach its target while avoiding obstacles in a simulated environment.</p>
-            <ul class="project-skills">
-              <li>ROS2</li>
-              <li>Deep Reinforcement Learning</li>
-              <li>Mecanum Kinematics</li>
-              <li>Autonomous Navigation</li>
-              <li>PyTorch</li>
-              <li>Simulation</li>
-            </ul>
-          </div>
-        </a>
+<section class="sec" id="work">
+<div class="wrap">
+<div class="sec-h">
+<div>
+<div class="eyebrow mono rv">04 · Selected builds</div>
+<h2 class="h2 rv">Robots I designed, built and <span class="serif">shipped</span> before the humanoids.</h2>
+</div>
+<p class="side-note rv">Every one of these started as a bag of parts. Three became peer reviewed papers.</p>
+</div>
+<div class="bento">
+<a class="pc s7 rv" href="#case-outdoor">
+<div class="im"><img src="assets/v2/p-outdoor.jpg" alt="Aluminium frame outdoor robot with RTK GPS antenna" loading="lazy"><span class="tagx mono">RTK GPS · EKF</span></div>
+<div class="bd"><h3>RTK GPS outdoor navigation robot<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Centimeter level outdoor autonomy from RTK GPS, IMU and wheel odometry fused with an EKF.</p></div>
+</a>
+<a class="pc s5 rv" href="#case-nova">
+<div class="im"><img src="assets/v2/p-nova.jpg" alt="White indoor delivery robot on a tiled walkway" loading="lazy"><span class="tagx mono">Springer · 2025</span></div>
+<div class="bd"><h3>Autonomous indoor delivery robot<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>LiDAR, IMU and odometry fused with an EKF, plus a PyQt interface with voice control.</p></div>
+</a>
+<a class="pc rv" href="#case-lowcost">
+<div class="im"><img src="assets/v2/p-lowcost.jpg" alt="Completed low cost navigation robot with LiDAR on top" loading="lazy"><span class="tagx hl mono">IEEE AIC · Best Paper</span></div>
+<div class="bd"><h3>Low cost multipurpose nav robot<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>An affordable ROS platform for mapping and autonomous navigation.</p></div>
+</a>
+<a class="pc rv" href="#case-4wd">
+<div class="im"><img src="assets/v2/p-4wd.jpg" alt="Four wheel drive robot with a 3D camera" loading="lazy"><span class="tagx hl mono">ACM AIR · Best Paper</span></div>
+<div class="bd"><h3>4WD visual SLAM robot<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Real time appearance based mapping for navigation where GPS cannot reach.</p></div>
+</a>
+<a class="pc rv" href="#case-rover">
+<div class="im"><img src="assets/v2/p-rover.jpg" alt="All terrain rover on grass" loading="lazy"><span class="tagx hl mono">IEEE IAS CMD · 1st</span></div>
+<div class="bd"><h3>Phase shifting all terrain rover<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Adaptive height and width for disaster response, with toxic gas detection.</p></div>
+</a>
+<a class="pc s5 rv" href="#case-rmf">
+<div class="im"><img src="assets/v2/p-rmf.jpg" alt="Open-RMF dashboard with multiple TurtleBot3 robots" loading="lazy"><span class="tagx mono">Open-RMF · ROS 2</span></div>
+<div class="bd"><h3>Multi robot fleet navigation<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Task scheduling and traffic management for a TurtleBot3 fleet.</p></div>
+</a>
+<a class="pc s7 rv" href="#case-ar100">
+<div class="im"><img src="assets/v2/p-ar100.jpg" alt="Multi room map with wormhole transitions" loading="lazy"><span class="tagx mono">ROS · Multi map</span></div>
+<div class="bd"><h3>Multi map navigation with wormholes<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Room to room autonomy on the ANSCER AR100 with dynamic map switching and SQLite route planning.</p></div>
+</a>
+</div>
+<div class="bento" style="margin-top: 20px">
+<a class="pc rv" href="#case-arm">
+<div class="im" style="background: #EEEEEE"><img src="assets/v2/g-arm.webp" alt="Animation of the ABB arm cleaning plates in simulation" loading="lazy" style="object-fit: contain"><span class="tagx mono">MATLAB · IK · PD control</span></div>
+<div class="bd"><h3>ABB plate cleaning arm<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>An ABB IRB 120 that wipes plates in spirals, wherever they land in its workspace.</p></div>
+</a>
+<a class="pc rv" href="#case-mecanum">
+<div class="im"><img src="assets/v2/c-mechero.jpg" alt="Mecanum wheel robot" loading="lazy"><span class="tagx mono">ROS · Teensy · PID</span></div>
+<div class="bd"><h3>Mecanum drift control<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Custom firmware for precise omnidirectional motion.</p></div>
+</a>
+<a class="pc rv" href="#case-turtle">
+<div class="im"><img src="assets/v2/g-turtle.webp" alt="Animation of the Turtlesim game" loading="lazy"><span class="tagx mono">ROS · C++</span></div>
+<div class="bd"><h3>Turtlesim game<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></h3><p>Where it started: keep the turtle on the line.</p></div>
+</a>
+</div>
+</div>
 
-        <!-- Project 6 -->
-        <a href="low_cost_autonomous_robot.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/mini.png" alt="Mini Indoor Autonomous Nav Bot">
-            <h3>Mini Indoor Autonomous Nav Bot</h3>
-            <p>A mini autonomous navigation robot based on the LinoRobot Repository.</p>
-            <ul class="project-skills">
-              <li>ROS</li>
-              <li>Embedded Systems</li>
-              <li>Sensor fusion</li>
-              <li>Indoor Navigation</li>
-              <li>Control Systems</li>
-              <li>Fusion 360</li>
-            </ul>
-          </div>
-        </a>
+<div class="film" id="bench" aria-label="Workbench builds">
+<div class="wrap film-h mono"><span>From the workbench</span><span>Tap any build to open it</span></div>
+<div class="ftrack">
+<a class="fi" href="#wb-biped"><div class="fim"><img src="assets/v2/w-biped.jpg" width="746" height="995" alt="3D printed biped robot" loading="lazy"></div><figcaption class="mono">3D printed biped · voice control</figcaption></a>
+<a class="fi case-link" href="https://photos.app.goo.gl/h2pmLLuwtx7CN4xdA" target="_blank" rel="noopener"><div class="fim"><img src="assets/v2/w-spider.jpg" width="1183" height="920" alt="Four legged spider robot" loading="lazy"></div><figcaption class="mono">Quadruped spider · watch video ↗</figcaption></a>
+<a class="fi" href="#wb-drone"><div class="fim"><img src="assets/v2/w-drone.jpg" width="1327" height="995" alt="Racing drone on a workbench" loading="lazy"></div><figcaption class="mono">Racing drone · CC3D PID</figcaption></a>
+<a class="fi" href="#wb-arm"><div class="fim"><img src="assets/v2/w-arm.jpg" width="860" height="768" alt="3D printed robot arm" loading="lazy"></div><figcaption class="mono">3D printed robot arm</figcaption></a>
+<a class="fi case-link" href="#case-dqn"><div class="fim"><img src="assets/v2/g-rl.webp" width="720" height="405" alt="Animation of the mecanum robot navigating with a trained DQN policy" loading="lazy"></div><figcaption class="mono">DQN mecanum navigation · case file ↗</figcaption></a>
+<a class="fi" href="#wb-water"><div class="fim"><img src="assets/v2/w-water.jpg" width="748" height="594" alt="Water cleaning robot prototype" loading="lazy"></div><figcaption class="mono">Water body cleaner · GPS missions</figcaption></a>
+<a class="fi" href="#wb-dirt"><div class="fim"><img src="assets/v2/w-dirt.jpg" width="962" height="874" alt="RC off road car electronics" loading="lazy"></div><figcaption class="mono">RC off roader · flip detection</figcaption></a>
+<a class="fi case-link" href="#case-lane"><div class="fim"><img src="assets/v2/c-lanehero.jpg" width="729" height="614" alt="Lane following car on a taped track" loading="lazy"></div><figcaption class="mono">Lane following car · case file ↗</figcaption></a>
+<a class="fi" href="#wb-calib"><div class="fim"><img src="assets/v2/p-calib.jpg" width="1100" height="825" alt="Colorized LiDAR point cloud of a street" loading="lazy"></div><figcaption class="mono">Camera LiDAR calibration dataset</figcaption></a>
+<a class="fi case-link" href="#case-chat"><div class="fim"><img src="assets/v2/g-chat.webp" width="600" height="366" alt="Animation of a ROS chat app between two nodes" loading="lazy"></div><figcaption class="mono">ROS chat app · case file ↗</figcaption></a>
+<a class="fi" href="#wb-soap"><div class="fim"><img src="assets/v2/w-soap.jpg" width="737" height="877" alt="Automatic soap dispenser" loading="lazy"></div><figcaption class="mono">Automatic soap dispenser</figcaption></a>
+<a class="fi" href="#wb-iot"><div class="fim"><img src="assets/v2/w-iot.jpg" width="1327" height="995" alt="Home automation board" loading="lazy"></div><figcaption class="mono">Home automation · IoT</figcaption></a>
+<a class="fi" href="#wb-biped" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-biped.jpg" width="746" height="995" alt="" loading="lazy"></div><figcaption class="mono">3D printed biped · voice control</figcaption></a>
+<a class="fi case-link" href="https://photos.app.goo.gl/h2pmLLuwtx7CN4xdA" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-spider.jpg" width="1183" height="920" alt="" loading="lazy"></div><figcaption class="mono">Quadruped spider · IK gaits</figcaption></a>
+<a class="fi" href="#wb-drone" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-drone.jpg" width="1327" height="995" alt="" loading="lazy"></div><figcaption class="mono">Racing drone · CC3D PID</figcaption></a>
+<a class="fi" href="#wb-arm" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-arm.jpg" width="860" height="768" alt="" loading="lazy"></div><figcaption class="mono">3D printed robot arm</figcaption></a>
+<a class="fi case-link" href="#case-dqn" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/g-rl.webp" width="720" height="405" alt="" loading="lazy"></div><figcaption class="mono">DQN mecanum navigation · case file ↗</figcaption></a>
+<a class="fi" href="#wb-water" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-water.jpg" width="748" height="594" alt="" loading="lazy"></div><figcaption class="mono">Water body cleaner · GPS missions</figcaption></a>
+<a class="fi" href="#wb-dirt" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-dirt.jpg" width="962" height="874" alt="" loading="lazy"></div><figcaption class="mono">RC off roader · flip detection</figcaption></a>
+<a class="fi case-link" href="#case-lane" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/c-lanehero.jpg" width="729" height="614" alt="" loading="lazy"></div><figcaption class="mono">Lane following car · case file ↗</figcaption></a>
+<a class="fi" href="#wb-calib" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/p-calib.jpg" width="1100" height="825" alt="" loading="lazy"></div><figcaption class="mono">Camera LiDAR calibration dataset</figcaption></a>
+<a class="fi case-link" href="#case-chat" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/g-chat.webp" width="600" height="366" alt="" loading="lazy"></div><figcaption class="mono">ROS chat app · case file ↗</figcaption></a>
+<a class="fi" href="#wb-soap" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-soap.jpg" width="737" height="877" alt="" loading="lazy"></div><figcaption class="mono">Automatic soap dispenser</figcaption></a>
+<a class="fi" href="#wb-iot" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/w-iot.jpg" width="1327" height="995" alt="" loading="lazy"></div><figcaption class="mono">Home automation · IoT</figcaption></a>
+</div>
+</div>
+</section>
 
-        <!-- Project 7 -->
-        <a href="mecanum.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/mecanum.png" alt="Holonomic Autonomous Navigation Mobile Robot">
-            <h3>Mecanum Wheel Based Nav. Robot</h3>
-            <p>An implementation of autonomous navigation with a sampling-based trajectory planner and drift control
-              using PID.</p>
-            <ul class="project-skills">
-              <li>Mecanum Drive</li>
-              <li>Autonomous Navigation</li>
-              <li>PID Control</li>
-              <li>Sampling-based Planning</li>
-              <li>Drift Control</li>
-            </ul>
-          </div>
-        </a>
+<section class="sec" id="research">
+<div class="wrap">
+<div class="sec-h">
+<div>
+<div class="eyebrow mono rv">05 · Research &amp; honors</div>
+<h2 class="h2 rv">Published, presented, and occasionally <span class="serif">first place.</span></h2>
+</div>
+</div>
+<div class="papers">
+<a class="paper rv" href="https://arxiv.org/abs/2609.04545" target="_blank" rel="noopener">
+<span class="ix mono">P.01</span>
+<div><h3>SocioGesture: Real-Time and Adaptive Social Gesture Perception for Human-Robot Interaction</h3><p class="au">W. Fu, L. Wu, <u>J. Peter</u>, C. Huyen, B. Chen, J. Liphardt</p></div>
+<span class="ven mono">arXiv · cs.RO · 2026<br><b class="new">Latest</b></span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+</a>
+<a class="paper rv" href="https://link.springer.com/chapter/10.1007/978-981-97-6732-8_3" target="_blank" rel="noopener">
+<span class="ix mono">P.02</span>
+<div><h3>Development of an Intuitive Autonomous Ground Robot for Indoor Delivery Applications</h3><p class="au"><u>J. Peter</u>, M. J. Thomas, S. Gokulkrishna, K. Cholappally, S. Mohan</p></div>
+<span class="ven mono">Springer Nature · IPDIMS 2023</span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+</a>
+<a class="paper rv" href="https://dl.acm.org/doi/abs/10.1145/3610419.3610472" target="_blank" rel="noopener">
+<span class="ix mono">P.03</span>
+<div><h3>Development of an Autonomous Ground Robot Using a Real Time Appearance Based (RTAB) Algorithm</h3><p class="au"><u>J. Peter</u>, M. J. Thomas, S. Mohan</p></div>
+<span class="ven mono">ACM AIR 2023 · IIT Ropar<br><b>Best Paper Presentation</b></span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+</a>
+<a class="paper rv" href="https://ieeexplore.ieee.org/abstract/document/9848857" target="_blank" rel="noopener">
+<span class="ix mono">P.04</span>
+<div><h3>Development of a Low Cost Multipurpose Autonomous Navigation Robot</h3><p class="au"><u>J. Peter</u>, M. J. Thomas</p></div>
+<span class="ven mono">IEEE AIC 2022 · IEEE Xplore<br><b>Best Paper</b></span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+</a>
+</div>
+<div class="honors">
+<div class="hon rv"><span class="mono">1st Prize</span><div><b>IEEE IAS CMD Student Robotics Demonstration Contest</b><small>An international contest run by the IEEE Industry Applications Society where student teams demo working robots. I won with the phase shifting all terrain rover.</small></div></div>
+<div class="hon rv"><span class="mono">Best Team</span><div><b>European Rover Challenge, Maintenance Task</b><small>One of the largest space robotics competitions in the world, held in Poland, where student teams take Mars rover analogues through science, navigation and maintenance tasks.</small></div></div>
+<div class="hon rv"><span class="mono">Champions</span><div><b>NASA Space Apps Challenge</b><small>NASA's international hackathon, run as hundreds of local events. Our team took Best Local Galactic Solution (senior category) at the Thrissur event.</small></div></div>
+<div class="hon rv"><span class="mono">Winner</span><div><b>Ottonomo 2022, TiHAN IIT Hyderabad</b><small>A grand challenge from TiHAN, IIT Hyderabad's autonomous navigation hub, looking for solutions to real bottlenecks in autonomous navigation.</small></div></div>
+<div class="hon rv"><span class="mono">Finalist</span><div><b>ARTPARK Robotics Challenge, IISc Bangalore</b><small>Run by ARTPARK, the AI and robotics technology park at the Indian Institute of Science. Our team made the grand finale.</small></div></div>
+<div class="hon rv"><span class="mono">1st Prize</span><div><b>Swadarsh Autonomous Robot Challenge</b><small>A build and run challenge for autonomous robots, where our robot finished first.</small></div></div>
+</div>
+</div>
+</section>
 
-        <!-- Project 8 -->
-        <a href="turtle_game.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/demo.gif" alt="Turtlesim based Game in ROS">
-            <h3>Turtlesim based Game in ROS</h3>
-            <p>A game made with TurtleSim in ROS, where the task is to drive the turtle around a predefined path without
-              going out of the line.</p>
-            <ul class="project-skills">
-              <li>ROS</li>
-              <li>Turtlesim</li>
-              <li>Basic Path Following</li>
-              <li>C++</li>
-            </ul>
-          </div>
-        </a>
+<section class="sec" id="teaching">
+<div class="wrap">
+<div class="eyebrow mono rv">06 · Teaching</div>
+<div class="teach">
+<div class="big rv"><span class="cnt to15"></span><span class="acc">+</span></div>
+<div>
+<h2 class="h2 rv" style="font-size: clamp(30px, 3.6vw, 48px)">Workshops on ROS, Nav2 and embedded robotics.</h2>
+<p class="side-note rv" style="max-width: 560px; margin-top: 20px">For students and faculty across Kerala, at IIT Ropar, at the UC Riverside BCOE Robotics Summer Camp, and as a TA for circuits and MATLAB at UCR. If it can be explained with a robot on the table, I would rather show it than slide it.</p>
+</div>
+</div>
+</div>
+<div class="film">
+<div class="ftrack rev">
+<a class="fi" href="#tp-ucr"><div class="fim"><img src="assets/v2/t-1.jpg" width="1400" height="788" alt="UCR robotics summer camp" loading="lazy"></div><figcaption class="mono">UCR · BCOE Robotics Summer Camp</figcaption></a>
+<a class="fi" href="#tp-ropar"><div class="fim"><img src="assets/v2/t-9.jpg" width="1400" height="788" alt="Paper presentation on stage" loading="lazy"></div><figcaption class="mono">IIT Ropar · AIR paper talk</figcaption></a>
+<a class="fi" href="#tp-erc"><div class="fim"><img src="assets/v2/a-erc.jpg" width="1400" height="1054" alt="European Rover Challenge team" loading="lazy"></div><figcaption class="mono">European Rover Challenge</figcaption></a>
+<a class="fi" href="#tp-prov"><div class="fim"><img src="assets/v2/t-10.jpg" width="1400" height="788" alt="Hands on robotics workshop" loading="lazy"></div><figcaption class="mono">Providence College · ROS hardware</figcaption></a>
+<a class="fi" href="#tp-crs"><div class="fim"><img src="assets/v2/t-7.jpg" width="1400" height="786" alt="Students programming robots" loading="lazy"></div><figcaption class="mono">CRS · Programming robots</figcaption></a>
+<a class="fi" href="#tp-nasa"><div class="fim"><img src="assets/v2/a-nasa.jpg" width="1304" height="1400" alt="NASA Space Apps champions holding the winners cheque" loading="lazy"></div><figcaption class="mono">NASA Space Apps · 1st</figcaption></a>
+<a class="fi" href="#tp-mits"><div class="fim"><img src="assets/v2/t-6.jpg" width="1400" height="788" alt="Autonomous navigation workshop" loading="lazy"></div><figcaption class="mono">MITS · Autonomous navigation</figcaption></a>
+<a class="fi" href="#tp-ucr" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/t-1.jpg" width="1400" height="788" alt="" loading="lazy"></div><figcaption class="mono">UCR · BCOE Robotics Summer Camp</figcaption></a>
+<a class="fi" href="#tp-ropar" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/t-9.jpg" width="1400" height="788" alt="" loading="lazy"></div><figcaption class="mono">IIT Ropar · AIR paper talk</figcaption></a>
+<a class="fi" href="#tp-erc" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/a-erc.jpg" width="1400" height="1054" alt="" loading="lazy"></div><figcaption class="mono">European Rover Challenge</figcaption></a>
+<a class="fi" href="#tp-prov" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/t-10.jpg" width="1400" height="788" alt="" loading="lazy"></div><figcaption class="mono">Providence College · ROS hardware</figcaption></a>
+<a class="fi" href="#tp-crs" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/t-7.jpg" width="1400" height="786" alt="" loading="lazy"></div><figcaption class="mono">CRS · Programming robots</figcaption></a>
+<a class="fi" href="#tp-nasa" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/a-nasa.jpg" width="1304" height="1400" alt="" loading="lazy"></div><figcaption class="mono">NASA Space Apps · 1st</figcaption></a>
+<a class="fi" href="#tp-mits" aria-hidden="true" tabindex="-1"><div class="fim"><img src="assets/v2/t-6.jpg" width="1400" height="788" alt="" loading="lazy"></div><figcaption class="mono">MITS · Autonomous navigation</figcaption></a>
+</div>
+</div>
+</section>
 
-        <!-- Project 9 -->
-        <a href="outdoorbot.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/outdoor.png" alt="RTK GPS Based Outdoor Nav. Bot">
-            <h3>RTK GPS Based Outdoor Nav. Bot</h3>
-            <p>Autonomous navigation with sensor fusion and RTK GPS.</p>
-            <ul class="project-skills">
-              <li>Outdoor Robotics</li>
-              <li>RTK GPS</li>
-              <li>Sensor Fusion</li>
-              <li>Localization</li>
-              <li>Path planning</li>
-              <li>State estimation</li>
-            </ul>
-          </div>
-        </a>
+<section class="contact" id="contact">
+<div class="wrap">
+<div class="eyebrow mono rv">07 · Contact</div>
+<h2 class="ct-h">Got a robot<br>that needs to<br><span class="serif acc">find its way?</span></h2>
+<a class="mail rv" href="mailto:jerinpeter@gmail.com">jerinpeter@gmail.com<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg></a>
+<div class="socials mono rv">
+<a class="pill" href="https://linkedin.com/in/jerinpeter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"></path></svg>LinkedIn</a>
+<a class="pill" href="https://github.com/jerinpeter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg>GitHub</a>
+<a class="pill" href="https://huggingface.co/jerinpeter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="9" cy="10" r=".6" fill="currentColor"></circle><circle cx="15" cy="10" r=".6" fill="currentColor"></circle><path d="M8.5 14c1 1.6 2.2 2.3 3.5 2.3s2.5-.7 3.5-2.3"></path></svg>Hugging Face</a>
+<a class="pill" href="https://www.youtube.com/@Jp_Robotics/videos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.75 15.5v-7l6 3.5z"></path></svg>YouTube</a>
+<a class="pill" href="https://jerinpeter14.medium.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 12a6.75 6.75 0 1 1-13.5 0 6.75 6.75 0 0 1 13.5 0Zm7.4 0c0 3.5-1.5 6.4-3.4 6.4s-3.4-2.9-3.4-6.4 1.5-6.4 3.4-6.4 3.4 2.9 3.4 6.4ZM24 12c0 3.1-.53 5.7-1.2 5.7-.66 0-1.2-2.6-1.2-5.7s.54-5.7 1.2-5.7c.67 0 1.2 2.6 1.2 5.7Z"></path></svg>Medium</a>
+<a class="pill" href="https://orcid.org/0009-0006-3222-3681" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 10.5v6"></path><circle cx="8.5" cy="7.6" r=".7" fill="currentColor"></circle><path d="M11.5 7.8v8.7h2c2.3 0 3.6-1.8 3.6-4.35S15.8 7.8 13.5 7.8z"></path></svg>ORCID</a>
+<a class="pill" href="https://drive.google.com/file/d/1uh0uZJYCMabrNe1ZgiYcL_7Oc0FJtWtU/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6"></path><path d="M8 13h8"></path><path d="M8 17h5"></path></svg>Résumé</a>
+</div>
+</div>
+<div class="wrap">
+<footer class="foot mono"><span>© 2026 Jerin Peter · built by hand, debugged at 2 am</span><span>San Francisco, CA</span><a href="#top" style="color: inherit; text-decoration: none">Back to top ↑</a></footer>
+</div>
+</section>
 
-        <!-- Project 10 -->
-        <a href="all_terrain_medical_rover.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/psr.png" alt="All-Terrain Medical Security Phase Shifting Rover">
-            <h3>All-Terrain Medical Security Phase Shifting Rover</h3>
-            <p>Designed a modular rover for disaster management with adaptive height/width adjustments and toxic gas
-              detection.</p>
-            <ul class="project-skills">
-              <li>Rover Design</li>
-              <li>Adaptive Mechanisms</li>
-              <li>Toxic Gas Detection</li>
-              <li>Disaster Management</li>
-              <li>All-Terrain Robotics</li>
-            </ul>
-          </div>
-        </a>
+<div class="case" id="case-outdoor" role="dialog" aria-label="RTK GPS outdoor navigation robot">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 01 / 13</span><a href="#case-nova">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">RTK GPS · NTRIP · ROS</div>
+<h2 class="case-h">RTK GPS outdoor <span class="serif acc">navigation robot</span></h2>
+<p class="case-sub">A large outdoor robot with inflatable tyres and an aluminium extrusion frame that localizes to centimeters using RTK corrections streamed over the internet.</p>
+<dl class="case-meta mono">
+<div><dt>Compute</dt><dd>Raspberry Pi 4 running ROS</dd></div>
+<div><dt>Sensors</dt><dd>RPLidar S2, Bosch BNO055 IMU, ArduSimple RTK2B</dd></div>
+<div><dt>Corrections</dt><dd>Own base station, Pi Zero W, NTRIP caster</dd></div>
+<div><dt>Design</dt><dd>Fusion 360, aluminium extrusion</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/p-outdoor.jpg" alt="Outdoor robot with aluminium frame" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Outdoors, the assumptions indoor stacks rely on fall apart: no walls to scan, uneven ground, changing light. This robot pairs low cost hardware with RTK GPS and sensor fusion so it can cross rough terrain and still know where it is to the centimeter.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Designed the chassis in Fusion 360 with inflatable tyres for terrain and an extrusion frame for rigidity.</li>
+<li>Built an RTK base station whose corrections reach the robot through a Pi Zero W and an NTRIP caster.</li>
+<li>Fused RTK GPS, IMU and wheel odometry for localization and navigation in ROS.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-out-1.jpg" alt="RTK GPS board" loading="lazy"></figure>
+<figure><img src="assets/v2/c-out-2.jpg" alt="Robot connected to a laptop during testing" loading="lazy"></figure>
+<figure><img src="assets/v2/c-out-3.jpg" alt="Custom circuit boards" loading="lazy"></figure>
+<figure><img src="assets/v2/g-design.webp" alt="Animation of the robot design in Fusion 360" loading="lazy"></figure>
+<figure><img src="assets/v2/g-ckt.webp" alt="Animation of the circuit design" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://photos.app.goo.gl/6sGMYqNPy4Vdwajf7" target="_blank" rel="noopener">Photos and videos ↗</a></div>
+<a class="case-next" href="#case-nova"><div><span class="mono">Next case file</span><b>Autonomous indoor delivery robot</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 11 -->
-        <a href="https://github.com/jerinpeter/chat_app" target="_blank" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/chatapp.gif" alt="Chat App using pub sub model">
-            <h3>Simple chat Application based on talker and listener node in ROS</h3>
-            <p>Implemented a chat-like application consisting of 2 nodes in ROS, demonstrating basic
-              subscriber-publisher
-              communication with multithreading via AsyncSpinner.</p>
-            <ul class="project-skills">
-              <li>ROS</li>
-              <li>Publisher-Subscriber</li>
-              <li>AsyncSpinner</li>
-              <li>Multithreading</li>
-              <li>Node Communication</li>
-            </ul>
-          </div>
-        </a>
+<div class="case" id="case-nova" role="dialog" aria-label="Autonomous indoor delivery robot">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 02 / 13</span><a href="#case-lowcost">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">Springer Nature · IPDIMS 2023</div>
+<h2 class="case-h">Autonomous indoor <span class="serif acc">delivery robot</span></h2>
+<p class="case-sub">Last mile delivery indoors: small goods, mail and groceries carried autonomously through corridors and rooms.</p>
+<dl class="case-meta mono">
+<div><dt>Compute</dt><dd>NVIDIA Jetson Nano</dd></div>
+<div><dt>Sensors</dt><dd>RPLidar, IMU, wheel odometry</dd></div>
+<div><dt>Software</dt><dd>ROS, SLAM, EKF, dynamic path planning</dd></div>
+<div><dt>Interface</dt><dd>PyQt touchscreen GUI with voice control</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/h-nova.jpg" alt="White delivery robot in a corridor" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>The robot maps a building once, then delivers on its own: you pick a destination on the screen or by voice, and it plans around people and obstacles in real time. It went from a bare prototype to a finished shell and a paper with Springer Nature.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>LiDAR SLAM mapping and EKF fusion of LiDAR, IMU and odometry for localization.</li>
+<li>Real time obstacle detection with dynamic path planning.</li>
+<li>A PyQt interface with voice control for choosing destinations.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-nova-1.jpg" alt="Initial prototype" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/c-nova-2.jpg" alt="Touchscreen interface" loading="lazy"></figure>
+<figure><img src="assets/v2/c-nova-3.jpg" alt="Finished robot" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://youtu.be/xsw3N9XQKTw" target="_blank" rel="noopener">Watch demo ↗</a><a class="pill" href="https://link.springer.com/chapter/10.1007/978-981-97-6732-8_3" target="_blank" rel="noopener">Read paper ↗</a><a class="pill" href="https://photos.app.goo.gl/rMXf2ZqJBj95Wx5AA" target="_blank" rel="noopener">Photos ↗</a></div>
+<a class="case-next" href="#case-lowcost"><div><span class="mono">Next case file</span><b>Low cost multipurpose nav robot</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 12 -->
-        <a href="selfdriving.html" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/lanefollowing.png" alt="Lane Following Robot">
-            <h3>Lane Following Robot</h3>
-            <p>OpenCV-based lane following algorithm implementation.</p>
-            <ul class="project-skills">
-              <li>Computer Vision</li>
-              <li>Lane Detection</li>
-              <li>OpenCV</li>
-              <li>Real-time Image Processing</li>
-              <li>Basic Robotics</li>
-            </ul>
-          </div>
-        </a>
+<div class="case" id="case-lowcost" role="dialog" aria-label="Low cost multipurpose navigation robot">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 03 / 13</span><a href="#case-4wd">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">IEEE AIC 2022 · Best Paper</div>
+<h2 class="case-h">Low cost multipurpose <span class="serif acc">nav robot</span></h2>
+<p class="case-sub">A 3D printed ROS robot built for contactless jobs during COVID: UV sanitization, food and medicine delivery, and remote surveillance.</p>
+<dl class="case-meta mono">
+<div><dt>Control</dt><dd>Teensy 3.6, MPU-6050 IMU</dd></div>
+<div><dt>Sensors</dt><dd>LiDAR, wide angle Pi camera</dd></div>
+<div><dt>Software</dt><dd>ROS, SLAM, Gazebo</dd></div>
+<div><dt>Design</dt><dd>Fusion 360 to URDF, PLA printed</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/p-lowcost.jpg" alt="Completed low cost navigation robot" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Autonomous robots were expensive, and the pandemic made contactless work urgent. This robot proves you can map, navigate, follow a person and stream video on an affordable, printable platform built on open source ROS.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Designed in Fusion 360, exported to URDF and simulated in Gazebo before printing.</li>
+<li>Stacked disc chassis: motors and driver below, Teensy and IMU above.</li>
+<li>SLAM with LiDAR plus camera based object detection, person following and live surveillance.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-lc-1.jpg" alt="Robot during assembly" loading="lazy"></figure>
+<figure><img src="assets/v2/c-lc-2.jpg" alt="Robot electronics deck" loading="lazy"></figure>
+<figure><img src="assets/v2/c-lc-3.jpg" alt="Robot with LiDAR" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/w-mini.jpg" alt="CAD render of the mini nav bot" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://youtu.be/sJpIB1qDBU4" target="_blank" rel="noopener">Watch demo ↗</a><a class="pill" href="https://ieeexplore.ieee.org/abstract/document/9848857" target="_blank" rel="noopener">Read paper ↗</a><a class="pill" href="https://drive.google.com/drive/folders/1ltTWZDqSmZyL6rCi-JtYmU9FmWKO0uCE?usp=drive_link" target="_blank" rel="noopener">Project files ↗</a></div>
+<a class="case-next" href="#case-4wd"><div><span class="mono">Next case file</span><b>4WD visual SLAM robot</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 13 -->
-        <a href="https://photos.app.goo.gl/h2pmLLuwtx7CN4xdA" target="_blank"
-          style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/spidy.png" alt="4 Legged Spider Robot">
-            <h3>4 Legged Spider Robot</h3>
-            <p>Studied inverse kinematics for legged motion and implemented different gait patterns.</p>
-            <ul class="project-skills">
-              <li>Legged Robotics</li>
-              <li>Inverse Kinematics</li>
-              <li>Gait Generation</li>
-              <li>Mechanical Design</li>
-              <li>Motion Control</li>
-            </ul>
-          </div>
-        </a>
+<div class="case" id="case-4wd" role="dialog" aria-label="4WD visual SLAM robot">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 04 / 13</span><a href="#case-rover">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">ACM AIR 2023 · Best Paper Presentation</div>
+<h2 class="case-h">4WD visual <span class="serif acc">SLAM robot</span></h2>
+<p class="case-sub">A four wheel drive ROS robot that builds 2D and 3D maps with RTAB-Map so it can navigate where GPS cannot reach.</p>
+<dl class="case-meta mono">
+<div><dt>Compute</dt><dd>Jetson Nano, Arduino Mega</dd></div>
+<div><dt>Sensors</dt><dd>YDLidar X4, Kinect, RealSense T265</dd></div>
+<div><dt>Software</dt><dd>ROS, move_base, GMapping, RTAB-Map</dd></div>
+<div><dt>Drive</dt><dd>RMCS-2303 drivers, four 100 RPM motors</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/h-4wd.jpg" alt="4WD robot outdoors" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Encoders drift and 2D LiDAR has a short reach outdoors. Fusing several sensors and leaning on appearance based mapping gave this robot maps it could trust in places where GPS would not help.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Modeled the robot in Fusion 360 and converted it to URDF for Gazebo.</li>
+<li>Fused LiDAR, Kinect depth, wheel encoders and T265 tracking odometry.</li>
+<li>Real time appearance based mapping for robust localization.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-4wd-1.jpg" alt="4WD robot close up" loading="lazy"></figure>
+<figure><img src="assets/v2/c-4wd-2.jpg" alt="RTAB-Map 3D map" loading="lazy"></figure>
+<figure><img src="assets/v2/c-4wd-3.jpg" alt="Gazebo simulation" loading="lazy"></figure>
+<figure><img src="assets/v2/g-drive.webp" alt="Animation of the robot driving" loading="lazy"></figure>
+<figure><img src="assets/v2/g-motor.webp" alt="Animation of the motor test" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://youtu.be/Dy9fhVJdwMo" target="_blank" rel="noopener">Watch demo ↗</a><a class="pill" href="https://github.com/jerinpeter/4wdNavbot" target="_blank" rel="noopener">Code ↗</a><a class="pill" href="https://dl.acm.org/doi/abs/10.1145/3610419.3610472" target="_blank" rel="noopener">Read paper ↗</a></div>
+<a class="case-next" href="#case-rover"><div><span class="mono">Next case file</span><b>Phase shifting all terrain rover</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 14 -->
-        <a href="https://youtube.com/shorts/h-e4w2_vm8c" target="_blank" style="text-decoration: none; color: inherit;">
-          <div class="project-card">
-            <img src="assets/images/projects/Automatic Soap Dispenser.png" alt="Automatic Soap / Sanitizer Dispenser">
-            <h3>Automatic Soap / Sanitizer Dispenser</h3>
-            <p>Rack and pinion based soap dispenser system.</p>
-            <ul class="project-skills">
-              <li>Automation</li>
-              <li>Mechanical Design</li>
-              <li>Rack and Pinion</li>
-              <li>Microcontroller</li>
-              <li>Sensor Integration</li>
-            </ul>
-          </div>
-        </a>
+<div class="case" id="case-rover" role="dialog" aria-label="Phase shifting all terrain rover">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 05 / 13</span><a href="#case-rmf">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">IEEE IAS CMD · 1st Prize</div>
+<h2 class="case-h">Phase shifting <span class="serif acc">all terrain rover</span></h2>
+<p class="case-sub">A rescue rover that changes its own width and height to squeeze through gaps, started after the Kerala floods.</p>
+<dl class="case-meta mono">
+<div><dt>Width</dt><dd>Motor driven threaded rod</dd></div>
+<div><dt>Height</dt><dd>Sixteen link aluminium pantograph</dd></div>
+<div><dt>Sensing</dt><dd>Toxic gas, human presence, wireless camera</dd></div>
+<div><dt>Extras</dt><dd>Drone landing pad on top</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/p-rover.jpg" alt="Rover on grass" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>In floods, industrial accidents and pandemics, the places that need help first are often the places people cannot safely go. This rover reshapes itself to get through, sniffs for gas, looks for people and can carry a drone for the last stretch.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>A base frame of aluminium channel and PVC with threaded rod width control.</li>
+<li>A collapsible pantograph top for height control that carries the camera and sensors.</li>
+<li>Gas and human presence sensing with a live feed for remote operators.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-psr-1.jpg" alt="Rover prototype" loading="lazy"></figure>
+<figure><img src="assets/v2/c-psr-2.jpg" alt="Rover extended" loading="lazy"></figure>
+<figure><img src="assets/v2/c-psr-3.jpg" alt="Rover electronics" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://youtu.be/RuL-yNG-U-E" target="_blank" rel="noopener">Watch demo ↗</a><a class="pill" href="https://drive.google.com/drive/u/0/folders/1TUabjqcrPZloOTRC7Hbn-FNA0aI6QkzA" target="_blank" rel="noopener">Project files ↗</a></div>
+<a class="case-next" href="#case-rmf"><div><span class="mono">Next case file</span><b>Multi robot fleet navigation</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 15 -->
-        <div class="project-card">
-          <img src="assets/images/projects/waterbot.png" alt="Water Body Cleaning Robot">
-          <h3>Water Body Cleaning Robot</h3>
-          <p>A prototype of an autonomous water cleaning robot with GPS-based mission planning to cover a water body and
-            collect waste.</p>
-          <ul class="project-skills">
-            <li>Environmental Robotics</li>
-            <li>GPS Navigation</li>
-            <li>Mission Planning</li>
-            <li>Waste Collection</li>
-            <li>Autonomous Navigation</li>
-          </ul>
-        </div>
+<div class="case" id="case-rmf" role="dialog" aria-label="Multi robot fleet navigation">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 06 / 13</span><a href="#case-ar100">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">Open-RMF · ROS 2 · Nav2</div>
+<h2 class="case-h">Multi robot <span class="serif acc">fleet navigation</span></h2>
+<p class="case-sub">Coordinating a TurtleBot3 fleet with Open-RMF: task allocation, traffic lanes and conflict resolution.</p>
+<dl class="case-meta mono">
+<div><dt>Robots</dt><dd>TurtleBot3 fleet</dd></div>
+<div><dt>Framework</dt><dd>Open-RMF, ROS 2, Nav2</dd></div>
+<div><dt>Simulation</dt><dd>Gazebo, custom facility map</dd></div>
+<div><dt>Tools</dt><dd>RMF web dashboard, RViz</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/p-rmf.jpg" alt="RMF dashboard and robots" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>One robot navigating is a solved problem. Several robots sharing corridors is a scheduling problem. Open-RMF sits above each robot's Nav2 stack and decides who goes, who waits and who reroutes.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>A facility map with traffic lanes and delivery endpoints.</li>
+<li>Namespaced Nav2 stacks for each robot in the fleet.</li>
+<li>Tasks dispatched from the RMF dashboard, with robots yielding and rerouting to avoid conflicts.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-rmf-1.jpg" alt="TurtleBot3 robots" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/c-rmf-2.jpg" alt="RMF web dashboard" loading="lazy"></figure>
+<figure><img src="assets/v2/c-rmf-3.jpg" alt="Robots executing tasks" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://youtu.be/DyssXuOaH5k" target="_blank" rel="noopener">Watch demo ↗</a><a class="pill" href="assets/images/projects/tb3_rmf_multirobotnav/Final_Project_Report.pdf" target="_blank" rel="noopener">Project report ↗</a></div>
+<a class="case-next" href="#case-ar100"><div><span class="mono">Next case file</span><b>Multi map navigation with wormholes</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 16 -->
-        <div class="project-card">
-          <img src="assets/images/projects/drone.jpg" alt="Racing Drone with CC3D">
-          <h3>Racing Drone with CC3D</h3>
-          <p>PID-tuned racing drone capable of performing stunt maneuvers.</p>
-          <ul class="project-skills">
-            <li>Drone Racing</li>
-            <li>PID Tuning</li>
-            <li>CC3D Flight Controller</li>
-            <li>Aerodynamics</li>
-            <li>Aerial Robotics</li>
-          </ul>
-        </div>
+<div class="case" id="case-ar100" role="dialog" aria-label="Multi map navigation with wormholes">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 07 / 13</span><a href="#case-dqn">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">ROS · SQLite · Action server</div>
+<h2 class="case-h">Multi map navigation <span class="serif acc">with wormholes</span></h2>
+<p class="case-sub">Room to room autonomy on the ANSCER AR100: when the goal lives on another map, the robot routes through wormholes.</p>
+<dl class="case-meta mono">
+<div><dt>Robot</dt><dd>ANSCER AR100 AMR</dd></div>
+<div><dt>Software</dt><dd>ROS, move_base, custom action server</dd></div>
+<div><dt>Data</dt><dd>SQLite wormhole database</dd></div>
+<div><dt>Interface</dt><dd>PyQt goal picker</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/p-ar100.jpg" alt="Multi room map" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Big facilities are easier to map room by room, but then a single goal can span several maps. Wormholes are known transition points between maps, so the robot drives to one, swaps maps and carries on, even through a hub room when there is no direct link.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>WormholeManager: direct and hub based transitions computed from SQLite.</li>
+<li>MapSwitcher: swaps map_server maps on the fly.</li>
+<li>NavigationServer: an action server that chooses direct goals or wormhole routing.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-ar-1.jpg" alt="Three room simulation" loading="lazy"></figure>
+<figure><img src="assets/v2/c-ar-2.jpg" alt="Robot heading to a wormhole" loading="lazy"></figure>
+<figure><img src="assets/v2/c-ar-3.jpg" alt="Goal picker interface" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://www.youtube.com/watch?v=18NSClquw_o" target="_blank" rel="noopener">Watch demo ↗</a><a class="pill" href="https://github.com/jerinpeter/ar100-multimap-nav" target="_blank" rel="noopener">Code ↗</a></div>
+<a class="case-next" href="#case-dqn"><div><span class="mono">Next case file</span><b>DQN mecanum navigation</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 17 -->
-        <div class="project-card">
-          <img src="assets/images/projects/arm.png" alt="Fully 3D printed Robot Arm">
-          <h3>Fully 3D printed Robot Arm</h3>
-          <p>Innovative 3D-printed robotic arm with advanced control features.</p>
-          <ul class="project-skills">
-            <li>3D Printing</li>
-            <li>Robotic Arm Design</li>
-            <li>Control Systems</li>
-            <li>CAD</li>
-            <li>Prototyping</li>
-          </ul>
-        </div>
+<div class="case" id="case-dqn" role="dialog" aria-label="DQN mecanum navigation">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 08 / 13</span><a href="#case-arm">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">ROS 2 · PyTorch · Reinforcement learning</div>
+<h2 class="case-h">DQN mecanum <span class="serif acc">navigation</span></h2>
+<p class="case-sub">Teaching a mecanum robot to reach goals and dodge obstacles with a Deep Q-Network, built from scratch in ROS 2.</p>
+<dl class="case-meta mono">
+<div><dt>Framework</dt><dd>ROS 2 Humble</dd></div>
+<div><dt>Learning</dt><dd>PyTorch DQN, experience replay</dd></div>
+<div><dt>Simulation</dt><dd>TurtleSim, then Gazebo</dd></div>
+<div><dt>State</dt><dd>Segmented laser scan</dd></div>
+</dl>
+</div>
+<figure class="case-hero ct"><img src="assets/v2/g-rl.webp" alt="Animation of the mecanum robot navigating with the trained policy" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>ROS ships with planners, not learners. I built the RL loop myself, proved it on TurtleSim, then moved it to a mecanum robot in Gazebo where the policy has to use sideways motion too.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Validated the reinforcement learning loop in TurtleSim first.</li>
+<li>Laser scan sectors as state, mecanum velocity commands as actions.</li>
+<li>A two layer MLP (256 units) trained with epsilon greedy exploration.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-dqnhero.jpg" alt="Mecanum robot in simulation" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/c-dqn-1.jpg" alt="Training curves" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/c-dqn-2.jpg" alt="Reward plot" loading="lazy"></figure>
+</div>
+<a class="case-next" href="#case-arm"><div><span class="mono">Next case file</span><b>ABB plate cleaning arm</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 18 -->
-        <div class="project-card">
-          <img src="assets/images/projects/biped.jpg" alt="Fully 3D printed biped robot with voice control">
-          <h3>Fully 3D printed biped robot with voice control</h3>
-          <p>Walking biped robot with obstacle avoidance and voice control.</p>
-          <ul class="project-skills">
-            <li>Biped Robotics</li>
-            <li>3D Printing</li>
-            <li>Voice Control</li>
-            <li>Obstacle Avoidance</li>
-            <li>Gait Planning</li>
-          </ul>
-        </div>
+<div class="case" id="case-arm" role="dialog" aria-label="ABB plate cleaning arm">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 09 / 13</span><a href="#case-mecanum">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">MATLAB · Kinematics · Control</div>
+<h2 class="case-h">ABB plate <span class="serif acc">cleaning arm</span></h2>
+<p class="case-sub">An ABB IRB 120 that cleans plates the way a person would, with spiral wiping on plates placed anywhere in its workspace.</p>
+<dl class="case-meta mono">
+<div><dt>Robot</dt><dd>ABB IRB 120</dd></div>
+<div><dt>Methods</dt><dd>Numerical IK, PD control</dd></div>
+<div><dt>Trajectories</dt><dd>Spirals plus cubic transitions</dd></div>
+<div><dt>Tool</dt><dd>MATLAB</dd></div>
+</dl>
+</div>
+<figure class="case-hero ct"><img src="assets/v2/g-arm.webp" alt="Animation of the ABB arm cleaning plates in simulation" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Plates land in random spots, so the arm has to plan for each one: find it, move there smoothly, wipe in a spiral, then transition to the next plate without jerks.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Numerical inverse kinematics for end effector positioning.</li>
+<li>Spiral cleaning paths and cubic polynomial transitions between plates.</li>
+<li>PD control for trajectory tracking with random plate placement.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure class="ct"><img src="assets/v2/c-arm-1.jpg" alt="Spiral and transition trajectories" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/c-arm-2.jpg" alt="Arm executing spiral" loading="lazy"></figure>
+<figure class="ct"><img src="assets/v2/c-arm-3.jpg" alt="Arm transitioning between plates" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://github.com/jerinpeter/DIshWashingArm" target="_blank" rel="noopener">Code ↗</a></div>
+<a class="case-next" href="#case-mecanum"><div><span class="mono">Next case file</span><b>Mecanum drift control robot</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 19 -->
-        <div class="project-card">
-          <a href="https://www.youtube.com/watch?v=DF6BLnM9p1M" target="_blank"
-            style="text-decoration: none; color: inherit;">
+<div class="case" id="case-mecanum" role="dialog" aria-label="Mecanum drift control robot">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 10 / 13</span><a href="#case-lane">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">ROS · Teensy · PID</div>
+<h2 class="case-h">Mecanum <span class="serif acc">drift control</span> robot</h2>
+<p class="case-sub">A laser cut, powder coated mecanum platform with custom firmware that turns ROS velocity commands into precise omnidirectional motion.</p>
+<dl class="case-meta mono">
+<div><dt>Compute</dt><dd>Raspberry Pi 4 running ROS</dd></div>
+<div><dt>Control</dt><dd>Teensy on a custom PCB, PID</dd></div>
+<div><dt>Sensors</dt><dd>RPLidar A1M8, high resolution encoders</dd></div>
+<div><dt>Drive</dt><dd>60 RPM Rhino motors, 40 kg-cm</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/c-mechero.jpg" alt="Mecanum robot" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Mecanum wheels can move in any direction, and they also slip in every direction. Tight wheel control and drift correction are what make the omnidirectional motion actually usable for navigation.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Laser cut metal chassis, powder coated for durability.</li>
+<li>Teensy firmware converting cmd_vel to PWM with PID and drift correction.</li>
+<li>A sampling based trajectory planner for autonomous navigation.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-mec-1.jpg" alt="Chassis parts" loading="lazy"></figure>
+<figure><img src="assets/v2/c-mec-2.jpg" alt="Robot on the bench with a laptop" loading="lazy"></figure>
+<figure><img src="assets/v2/c-mec-3.jpg" alt="Robot from above" loading="lazy"></figure>
+</div>
+<div class="case-links mono"><a class="pill" href="https://photos.app.goo.gl/UczhLnbYWokjUN27A" target="_blank" rel="noopener">Photos and videos ↗</a></div>
+<a class="case-next" href="#case-lane"><div><span class="mono">Next case file</span><b>Lane following car</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-            <img src="assets/images/projects/iot.jpg" alt="Home Automation using IOT">
-            <h3>Home Automation using IOT</h3>
-            <p>NodeMCU-based control of sockets using IFTTT and Gassit.</p>
-            <ul class="project-skills">
-              <li>IoT</li>
-              <li>Home Automation</li>
-              <li>NodeMCU</li>
-              <li>IFTTT</li>
-              <li>Embedded Systems</li>
-            </ul>
-          </a>
-        </div>
+<div class="case" id="case-lane" role="dialog" aria-label="Lane following car">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 11 / 13</span><a href="#case-turtle">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">OpenCV · ROS</div>
+<h2 class="case-h">Lane following <span class="serif acc">car</span></h2>
+<p class="case-sub">A small car that stays in its lane with classical computer vision and a simple controller.</p>
+<dl class="case-meta mono">
+<div><dt>Vision</dt><dd>OpenCV lane detection</dd></div>
+<div><dt>Software</dt><dd>ROS</dd></div>
+<div><dt>Focus</dt><dd>Real time image processing</dd></div>
+</dl>
+</div>
+<figure class="case-hero"><img src="assets/v2/c-lanehero.jpg" alt="Car on a taped track" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Before any learned driving, there is a camera, a threshold and a lot of tape on the floor. This car detects lane lines and steers to keep itself centered.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>A lane detection pipeline in OpenCV.</li>
+<li>Steering from the offset to the lane center.</li>
+<li>Testing on a taped indoor track.</li>
+</ul></div>
+</div>
+<div class="case-gal">
+<figure><img src="assets/v2/c-lane-1.jpg" alt="Car chassis" loading="lazy"></figure>
+<figure><img src="assets/v2/c-lane-2.jpg" alt="Electronics" loading="lazy"></figure>
+<figure><img src="assets/v2/c-lane-3.jpg" alt="Wiring" loading="lazy"></figure>
+</div>
+<a class="case-next" href="#case-turtle"><div><span class="mono">Next case file</span><b>Turtlesim game</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-        <!-- Project 20 -->
-        <div class="project-card">
-          <img src="assets/images/projects/dirtcar.png" alt="RC offroad car with drift control">
-          <h3>RC offroad car with drift control</h3>
-          <p>RC dirt car featuring flip detection and control switching for stable off-road driving.</p>
-          <ul class="project-skills">
-            <li>RC Vehicle</li>
-            <li>Drift Control</li>
-            <li>Flip Detection</li>
-            <li>Embedded Systems</li>
-            <li>Radio Control</li>
-          </ul>
-        </div>
-      </div>
-      <!-- <button class="more-button" id="toggleProjects">More Projects</button> -->
-    </div>
-  </section>
+<div class="case" id="case-turtle" role="dialog" aria-label="Turtlesim game">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 12 / 13</span><a href="#case-chat">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">ROS · C++ · Where it started</div>
+<h2 class="case-h">Turtlesim <span class="serif acc">game</span></h2>
+<p class="case-sub">One of my first ROS projects: drive the turtle around a predefined path without leaving the line.</p>
+<dl class="case-meta mono">
+<div><dt>Framework</dt><dd>ROS Noetic, Turtlesim</dd></div>
+<div><dt>Language</dt><dd>C++</dd></div>
+<div><dt>Concepts</dt><dd>Basic path following</dd></div>
+</dl>
+</div>
+<figure class="case-hero ct"><img src="assets/v2/g-turtle.webp" alt="Animation of the Turtlesim game being played" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Small, silly and important. Building a game on Turtlesim is how I got comfortable with ROS, the same framework I now use on humanoids.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>A path following game on Turtlesim.</li>
+<li>Written in C++ on ROS Noetic.</li>
+</ul></div>
+</div>
+<a class="case-next" href="#case-chat"><div><span class="mono">Next case file</span><b>ROS chat app</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-  <!-- Experience Section -->
-  <section id="experience" class="experience-section">
-    <div class="container">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item left">
-          <div class="timeline-content flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="assets/images/companies/openmind.jpeg" alt="ITP Palakkad Technology IHub Foundation">
-                <h3>OpenMind AGI</h3>
-                <p>Robotics Engineer</p>
-                <p>Sept 2024 - Present</p>
-              </div>
-              <div class="flip-card-back">
-                <h3>Responsibilities</h3>
-                <ul class="experience-details">
-                  <li>Integrated LLM function calling with OM1 platform enabling natural language navigation commands
-                    and
-                    semantic location mapping, reducing operator training time by 75%.</li>
-                  <li>Deployed ROS2 autonomy stack interfacing foundation models (LLM/VLM) with Unitree Go2 quadrupeds,
-                    achieving 40% faster task completion.</li>
-                  <li>Engineered AprilTag-based docking system with predictive battery management, achieving 98% docking
-                    success rate.</li>
-                  <li>Implemented Nav2 with STVL and 4D LiDAR fusion for VLM-processed 3D mapping with 95% semantic
-                    accuracy.</li>
-                  <li>Developed containerized Flask APIs orchestrating SLAM, navigation, and inference across robot
-                    fleet.
-                  </li>
-                </ul>
-                <div class="job-keywords">
-                  <span class="keyword-tag">LLM / VLM</span>
-                  <span class="keyword-tag">ROS 2</span>
-                  <span class="keyword-tag">Python</span>
-                  <span class="keyword-tag">SLAM</span>
-                  <span class="keyword-tag">Docker</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="assets/images/companies/ucr.png" alt="UC Riverside">
-                <h3>UC Riverside</h3>
-                <p>Robotics Instructor - Summer Camp</p>
-                <p>2024</p>
-              </div>
-              <div class="flip-card-back">
-                <h3>Responsibilities</h3>
-                <ul class="experience-details">
-                  <li>Developed curriculum and taught ROS fundamentals and robotics workflows to students.</li>
-                  <li>Led hands-on workshops on robotics development.</li>
-                </ul>
-                <div class="job-keywords">
-                  <span class="keyword-tag">Teaching</span>
-                  <span class="keyword-tag">ROS</span>
-                  <span class="keyword-tag">Curriculum Design</span>
-                  <span class="keyword-tag">Mentorship</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-content flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="assets/images/companies/iptif.png" alt="IIT Palakkad Technology IHub Foundation">
-                <h3>IIT Palakkad Technology IHub Foundation</h3>
-                <p>Project Engineer - Mobile Robotics</p>
-                <p>Jul 2023 - Feb 2024</p>
-              </div>
-              <div class="flip-card-back">
-                <h3>Responsibilities</h3>
-                <ul class="experience-details">
-                  <li>Engineered modular ROS2-based control stack with Nav2 integration, reducing integration time by
-                    15%.
-                  </li>
-                  <li>Developed real-time PID controllers in C++ with adaptive gain scheduling, improving trajectory
-                    accuracy by 90%.</li>
-                  <li>Fused RTK GPS, IMU, and wheel encoders using EKF to achieve sub-5 cm outdoor accuracy.</li>
-                </ul>
-                <div class="job-keywords">
-                  <span class="keyword-tag">Open-RMF</span>
-                  <span class="keyword-tag">ROS 2</span>
-                  <span class="keyword-tag">C++</span>
-                  <span class="keyword-tag">Nav2</span>
-                  <span class="keyword-tag">Sensor Fusion</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="assets/images/companies/asimov.jpeg" alt="Asimov Robotics">
-                <h3>Asimov Robotics</h3>
-                <p>Software Intern - ROS Developer</p>
-                <p>Aug 2022 - Jun 2023</p>
-              </div>
-              <div class="flip-card-back">
-                <h3>Responsibilities</h3>
-                <ul class="experience-details">
-                  <li>Migrated legacy ROS nodes to Ubuntu 20.04 & ROS Noetic with documentation, reducing runtime lag by
-                    20%.</li>
-                  <li>Developed and validated robust sensor-fusion workflows with calibration tools, reducing drift
-                    errors
-                    by 10%.</li>
-                </ul>
-                <div class="job-keywords">
-                  <span class="keyword-tag">ROS Noetic</span>
-                  <span class="keyword-tag">Python</span>
-                  <span class="keyword-tag">Sensor Fusion</span>
-                  <span class="keyword-tag">Calibration</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-content flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="assets/images/companies/tihan.png" alt="THIAN">
-                <h3>TiHAN</h3>
-                <p>Research Assistant &amp; Community Development</p>
-                <p>Aug 2021 - Oct 2021</p>
-              </div>
-              <div class="flip-card-back">
-                <h3>Responsibilities</h3>
-                <ul class="experience-details">
-                  <li>Assisted in research related to autonomous ground vehicles (AGVs).</li>
-                  <li>Contributed to the development of dataset collection tools for navigation stacks.</li>
-                  <li>Organized and led technical workshops to foster the robotics community.</li>
-                </ul>
-                <div class="job-keywords">
-                  <span class="keyword-tag">Research</span>
-                  <span class="keyword-tag">AGV</span>
-                  <span class="keyword-tag">Data Collection</span>
-                  <span class="keyword-tag">Community</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-content flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="assets/images/companies/aug.png" alt="Augsense Labs">
-                <h3>Augsense Labs</h3>
-                <p>Software Intern - ROS Developer</p>
-                <p>Feb 2020 - Sept 2020</p>
-              </div>
-              <div class="flip-card-back">
-                <h3>Responsibilities</h3>
-                <ul class="experience-details">
-                  <li>Built a 4-wheel drive outdoor robot equipped with 3D cameras for visual SLAM.</li>
-                  <li>Implemented real-time appearance-based mapping for GPS-denied navigation.</li>
-                  <li>Optimized visual odometry algorithms for varied lighting conditions.</li>
-                </ul>
-                <div class="job-keywords">
-                  <span class="keyword-tag">Visual SLAM</span>
-                  <span class="keyword-tag">Outdoor Nav</span>
-                  <span class="keyword-tag">Computer Vision</span>
-                  <span class="keyword-tag">ROS</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="case" id="case-chat" role="dialog" aria-label="ROS chat app">
+<div class="case-bar mono"><a href="#work">← All builds</a><span>Case file 13 / 13</span><a href="#case-outdoor">Next →</a></div>
+<div class="wrap case-in">
+<div class="case-head">
+<div>
+<div class="case-tag mono">ROS · roscpp · Multithreading</div>
+<h2 class="case-h">ROS <span class="serif acc">chat app</span></h2>
+<p class="case-sub">A chat between two ROS nodes, a talker and a listener, built to get publish and subscribe right.</p>
+<dl class="case-meta mono">
+<div><dt>Framework</dt><dd>ROS</dd></div>
+<div><dt>Pattern</dt><dd>Publisher and subscriber nodes</dd></div>
+<div><dt>Threading</dt><dd>AsyncSpinner</dd></div>
+</dl>
+</div>
+<figure class="case-hero ct"><img src="assets/v2/g-chat.webp" alt="Animation of two ROS nodes chatting" loading="lazy"></figure>
+</div>
+<div class="case-body">
+<div><h3 class="mono">Overview</h3><p>Two nodes that talk to each other like a chat window. Receiving while typing means the node cannot block, so callbacks run on their own threads with AsyncSpinner.</p></div>
+<div><h3 class="mono">What I built</h3><ul>
+<li>Talker and listener nodes exchanging messages over ROS topics.</li>
+<li>Multithreaded callbacks with AsyncSpinner so sending and receiving run together.</li>
+</ul></div>
+</div>
+<div class="case-links mono"><a class="pill" href="https://github.com/jerinpeter/chat_app" target="_blank" rel="noopener">Code ↗</a></div>
+<a class="case-next" href="#case-outdoor"><div><span class="mono">Back to the first case file</span><b>RTK GPS outdoor navigation robot</b></div><span class="mono">→</span></a>
+</div>
+</div>
 
-
-  <!-- Publications Section -->
-  <section id="publications" class="publications-section">
-    <div class="container">
-      <h2>Publications</h2>
-      <div class="publications-grid">
-
-        <!-- Publication 1 -->
-        <div class="publication-card">
-          <div class="publication-info">
-            <h3>Development of a Low-Cost Multipurpose Autonomous Navigation Robot</h3>
-            <p class="publication-authors">J. Peter and M. J. Thomas</p>
-            <p>
-              2022 IEEE World Conference on Applied Intelligence and Computing (AIC), Sonbhadra, India, 2022 - IEEE
-              Xplore
-            </p>
-            <a href="https://ieeexplore.ieee.org/abstract/document/9848857" target="_blank" class="publication-link">
-              View Paper
-            </a>
-            <!-- Embedded YouTube Video -->
-            <div class="publication-video">
-              <iframe width="100%" height="200" src="https://www.youtube.com/embed/sJpIB1qDBU4"
-                title="Development of a Low-Cost Multipurpose Autonomous Navigation Robot" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- Publication 2 -->
-        <div class="publication-card">
-          <div class="publication-info">
-            <h3>Development of an Autonomous Ground Robot Using a Real-Time Appearance Based (RTAB) Algorithm</h3>
-            <p class="publication-authors">J. Peter, M. J. Thomas, Mohan S. </p>
-            <p>
-              In Proceedings of the 2023 6th International Conference on Advances in Robotics - ACM <br />
-              <!-- <em>https://doi.org/10.1145/3610419.3610472</em> -->
-            </p>
-            <a href="https://dl.acm.org/doi/abs/10.1145/3610419.3610472" target="_blank" class="publication-link">
-              View Paper
-            </a>
-            <!-- Embedded YouTube Video -->
-            <div class="publication-video">
-              <iframe width="100%" height="200" src="https://www.youtube.com/embed/oyijr-v_Ncw"
-                title="Development of an Autonomous Ground Robot Using a Real-Time Appearance Based (RTAB) Algorithm"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- Publication 3 -->
-        <div class="publication-card">
-          <div class="publication-info">
-            <h3>Development of an Intuitive Autonomous Ground Robot for Indoor Delivery Applications</h3>
-            <p class="publication-authors">Peter J., Thomas M.J., Gokulkrishna S., Cholappally K., Mohan S.</p>
-            <p>
-              Recent Advancements in Product Design and Manufacturing Systems. IPDIMS 2023 - Springer Nature <br />
-              <!-- <em>https://doi.org/10.1007/978-981-97-6732-8_3</em> -->
-            </p>
-            <a href="https://link.springer.com/chapter/10.1007/978-981-97-6732-8_3" target="_blank"
-              class="publication-link">
-              View Paper
-            </a>
-            <!-- Embedded YouTube Video -->
-            <div class="publication-video">
-              <iframe width="100%" height="200" src="https://www.youtube.com/embed/UdTig0XozBs"
-                title="Development of an Intuitive Autonomous Ground Robot for Indoor Delivery Applications"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Workshops & Mentorships Slideshow Section -->
-  <section id="workshops" class="workshops-section">
-    <div class="container">
-      <h2>Workshops & Mentorships</h2>
-      <div class="slider">
-        <div class="slide active">
-          <img src="assets/images/teaching/3.jpg" alt="Robotics Automation Workshop" style="width: 100; height: auto;">
-          <p>ROS Workshop</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/4.jpg" alt="AI &amp; ML Mentorship Program"
-            style="width: 100%; height: auto;">
-          <p>ROS Workshop</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/5.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>RSET | Introduction to Embedded Systems</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/6.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>MITS | Implementation of Autonomous Navigation using ROS</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/7.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>CRS | Programming Robots using Arduino</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/8.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p> RSET | Tekshetra | Techfest | Intro to ROS</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/9.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p> IIT Ropar | Paper Presentaion | AIR 2024 </p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/10.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>Providence College | Building ROS based hardware projects</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/11.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>CUSAT | Introduction to Mobile Robotics </p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/12.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>MITS | Faculty Development Program | Introduction to ROS</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/13.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>MITS | Faculty Development Program | Introduction to ROS</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/14.jpeg" alt="Advanced ROS Workshop" style="width: 70%; height: auto;">
-          <p>RSET | ROS Based Modelling</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/15.jpeg" alt="Advanced ROS Workshop" style="width: 70%; height: auto;">
-          <p>MITS | Unlocking ROS2 </p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/16.jpeg" alt="Advanced ROS Workshop" style="width: 70%; height: auto;">
-          <p>MACE | Introduction to Mobile Robotics</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/17.jpeg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>FISAT | Building hardware robots </p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/18.jpeg" alt="Advanced ROS Workshop" style="width: 70%; height: auto;">
-          <p>IEEE SCT SB | Building Line Follower Robots</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/1.jpg" alt="Advanced ROS Workshop" style="width: 100%; height: auto;">
-          <p>UCR | BCOE Robotics Summer Camp</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/teaching/19.jpeg" alt="Advanced ROS Workshop" style="width: 70%; height: auto;">
-          <p>SCT College | IEEE</p>
-        </div>
-        <!-- Add more slides as needed -->
-        <div class="prev">&#10094;</div>
-        <div class="next">&#10095;</div>
-        <!-- Add dot indicators container -->
-        <div class="dots-container">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
-          <span class="dot" onclick="currentSlide(5)"></span>
-          <span class="dot" onclick="currentSlide(6)"></span>
-          <span class="dot" onclick="currentSlide(7)"></span>
-          <span class="dot" onclick="currentSlide(8)"></span>
-          <span class="dot" onclick="currentSlide(9)"></span>
-          <span class="dot" onclick="currentSlide(10)"></span>
-          <span class="dot" onclick="currentSlide(11)"></span>
-          <span class="dot" onclick="currentSlide(12)"></span>
-          <span class="dot" onclick="currentSlide(13)"></span>
-          <span class="dot" onclick="currentSlide(14)"></span>
-          <span class="dot" onclick="currentSlide(15)"></span>
-          <span class="dot" onclick="currentSlide(16)"></span>
-          <span class="dot" onclick="currentSlide(17)"></span>
-          <span class="dot" onclick="currentSlide(18)"></span>
-          <span class="dot" onclick="currentSlide(19)"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Achievements Section -->
-  <section id="achievements" class="achievements-section">
-    <div class="container">
-      <h2>Achievements</h2>
-      <div class="slider achievements-slider">
-        <div class="slide active">
-          <img src="assets/images/achievements/1.jpg" alt="Achievement 1" style="width: 980%; height: auto;">
-          <p>European Rover Challenge | Best Team - Maintenance Task</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/2.jpg" alt="Achievement 2" style="width: 130%; height: auto;">
-          <p>Swadarsh | Autonomous Robot Challenge | 1st Prize</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/3.jpg" alt="Achievement 3" style="width: 130%; height: auto;">
-          <p>Artpark Robotics Challenge - Finalist | IISC Banglore</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/4.jpg" alt="Achievement 4" style="width: 130%; height: auto;">
-          <p>Nasa Space Apps Hackathon | 1st Prize</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/5.jpg" alt="Achievement 5" style="width: 70%; height: auto;">
-          <p>IEEE IAS CMD Student Robotics Demonstration Contest | 1st Prize</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/6.jpeg" alt="Achievement 6" style="width: 70%; height: auto;">
-          <p>Best Paper Award</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/7.jpeg" alt="Achievement 7" style="width: 70%; height: auto;">
-          <p>Ottonomo | 1st Prize</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/8.jpg" alt="Achievement 7" style="width: 70%; height: auto;">
-          <p>Best Paper Award | AIC 2022</p>
-        </div>
-        <div class="slide">
-          <img src="assets/images/achievements/9.png" alt="Achievement 7" style="width: 70%; height: auto;">
-          <p>IEEE International Competition | 1st Prize - Asia Pacific</p>
-        </div>
-        <div class="prev">&#10094;</div>
-        <div class="next">&#10095;</div>
-        <div class="dots-container">
-          <span class="dot" onclick="currentAchievementSlide(1)"></span>
-          <span class="dot" onclick="currentAchievementSlide(2)"></span>
-          <span class="dot" onclick="currentAchievementSlide(3)"></span>
-          <span class="dot" onclick="currentAchievementSlide(4)"></span>
-          <span class="dot" onclick="currentAchievementSlide(5)"></span>
-          <span class="dot" onclick="currentAchievementSlide(6)"></span>
-          <span class="dot" onclick="currentAchievementSlide(7)"></span>
-          <span class="dot" onclick="currentAchievementSlide(8)"></span>
-          <span class="dot" onclick="currentAchievementSlide(9)"></span>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2>Get in <span style="color: #1db954;">Touch</span></h2>
-      <div style="width: 60px; height: 4px; background: #1db954; margin: 0 auto 1.5rem;"></div>
-      <p style="text-align: center; margin-bottom: 3rem;">Interested in working together? Feel free to reach out for collaborations or opportunities!</p>
-      
-      <div style="display: flex; justify-content: center; align-items: flex-start; gap: 4rem; flex-wrap: wrap;">
-        <!-- Contact Info Cards -->
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-          <!-- Email -->
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="background: linear-gradient(135deg, #1db95422, #1db95444); padding: 1rem; border-radius: 12px;">
-              <i class="fas fa-envelope" style="font-size: 1.5rem; color: #1db954;"></i>
-            </div>
-            <div>
-              <h4 style="margin: 0; font-size: 1.1rem;">Email</h4>
-              <a href="mailto:jerinpeter@gmail.com" style="color: #aaa; font-size: 0.95rem;">jerinpeter@gmail.com</a>
-            </div>
-          </div>
-          
-          <!-- Location -->
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="background: linear-gradient(135deg, #1db95422, #1db95444); padding: 1rem; border-radius: 12px;">
-              <i class="fas fa-map-marker-alt" style="font-size: 1.5rem; color: #1db954;"></i>
-            </div>
-            <div>
-              <h4 style="margin: 0; font-size: 1.1rem;">Location</h4>
-              <p style="color: #aaa; margin: 0; font-size: 0.95rem;">San Francisco, CA 94107</p>
-            </div>
-          </div>
-          
-          <!-- Availability -->
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="background: linear-gradient(135deg, #1db95422, #1db95444); padding: 1rem; border-radius: 12px;">
-              <i class="fas fa-calendar-check" style="font-size: 1.5rem; color: #1db954;"></i>
-            </div>
-            <div>
-              <h4 style="margin: 0; font-size: 1.1rem;">Availability</h4>
-              <p style="color: #aaa; margin: 0; font-size: 0.95rem;">Open for opportunities</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Map -->
-        <div class="contact-map">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12615.891433821655!2d-122.40137258173829!3d37.77492951402712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3c6a0c8c5f%3A0x8c8c8c8c8c8c8c8c!2sSan%20Francisco%2C%20CA%2094107!5e0!3m2!1sen!2sus!4v1600000000000" 
-            width="450" 
-            height="300" 
-            style="border:0; border-radius: 12px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="social-links" style="margin-bottom: 1rem;">
-        <a href="https://linkedin.com/in/jerinpeter" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/jerinpeter" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://jerinpeter14.medium.com/" target="_blank"><i class="fab fa-medium-m"></i></a>
-        <a href="mailto:jerinpeter@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.instagram.com/jerin_peter/" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p>&copy; 2026 Jerin Peter. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+<div class="lb" id="wb-biped" role="dialog" aria-label="3D printed biped"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-biped.jpg" alt="3D printed biped robot" loading="lazy"><p><b>3D printed biped</b>A walking biped with obstacle avoidance and voice control, printed from scratch.</p></div>
+<div class="lb" id="wb-spider" role="dialog" aria-label="Quadruped spider"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-spider.jpg" alt="Four legged spider robot" loading="lazy"><p><b>Quadruped spider</b>Studied inverse kinematics for legged motion and implemented different gait patterns.</p><a class="pill mono" href="https://photos.app.goo.gl/h2pmLLuwtx7CN4xdA" target="_blank" rel="noopener">Photos and videos ↗</a></div>
+<div class="lb" id="wb-drone" role="dialog" aria-label="Racing drone"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-drone.jpg" alt="Racing drone" loading="lazy"><p><b>Racing drone</b>A PID tuned racing drone on a CC3D flight controller, capable of stunt maneuvers.</p></div>
+<div class="lb" id="wb-arm" role="dialog" aria-label="3D printed robot arm"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-arm.jpg" alt="3D printed robot arm" loading="lazy"><p><b>3D printed robot arm</b>A fully printed arm with servo control, designed in CAD and iterated on the bench.</p></div>
+<div class="lb" id="wb-water" role="dialog" aria-label="Water body cleaning robot"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-water.jpg" alt="Water cleaning robot prototype" loading="lazy"><p><b>Water body cleaner</b>A prototype that plans GPS missions to sweep a water body and collect floating waste.</p></div>
+<div class="lb" id="wb-dirt" role="dialog" aria-label="RC off road car"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-dirt.jpg" alt="RC off road car electronics" loading="lazy"><p><b>RC off roader</b>Flip detection and control switching for stable off road driving.</p></div>
+<div class="lb" id="wb-mini" role="dialog" aria-label="Mini nav bot"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-mini.jpg" alt="Mini navigation robot" loading="lazy"><p><b>Mini nav bot</b>A small indoor autonomous robot based on the LinoRobot stack.</p></div>
+<div class="lb" id="wb-calib" role="dialog" aria-label="Camera LiDAR calibration dataset"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/p-calib.jpg" alt="Colorized LiDAR point cloud of a street" loading="lazy"><p><b>Multimodal calibration dataset</b>Robot arms and a motion capture system collecting camera to LiDAR extrinsics across static and dynamic setups.</p></div>
+<div class="lb" id="wb-chat" role="dialog" aria-label="ROS chat app"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/g-chat.webp" alt="Animation of a ROS chat app between two nodes" loading="lazy"><p><b>ROS chat app</b>A chat between two ROS nodes built on publish and subscribe, with multithreading through AsyncSpinner.</p><a class="pill mono" href="https://github.com/jerinpeter/chat_app" target="_blank" rel="noopener">Code ↗</a></div>
+<div class="lb" id="wb-soap" role="dialog" aria-label="Automatic soap dispenser"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-soap.jpg" alt="Automatic soap dispenser" loading="lazy"><p><b>Automatic soap and sanitizer dispenser</b>A touch free dispenser driven by a rack and pinion mechanism.</p><a class="pill mono" href="https://youtube.com/shorts/h-e4w2_vm8c" target="_blank" rel="noopener">Watch it work ↗</a></div>
+<div class="lb" id="wb-iot" role="dialog" aria-label="Home automation using IoT"><a class="lb-bg" href="#bench" aria-label="Close"></a><a class="lb-x mono" href="#bench">Close ✕</a><img src="assets/v2/w-iot.jpg" alt="Home automation board" loading="lazy"><p><b>Home automation using IoT</b>NodeMCU controlled sockets, triggered through IFTTT and Google Assistant.</p><a class="pill mono" href="https://www.youtube.com/watch?v=DF6BLnM9p1M" target="_blank" rel="noopener">Watch demo ↗</a></div>
+<div class="lb" id="tp-ucr" role="dialog" aria-label="UCR summer camp"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/t-1.jpg" alt="UCR robotics summer camp" loading="lazy"><p><b>UCR · BCOE Robotics Summer Camp</b>Designed the curriculum and taught ROS fundamentals.</p></div>
+<div class="lb" id="tp-ropar" role="dialog" aria-label="IIT Ropar talk"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/t-9.jpg" alt="Paper presentation on stage" loading="lazy"><p><b>IIT Ropar · ACM AIR</b>Presenting the RTAB-Map robot paper, which won best paper presentation.</p></div>
+<div class="lb" id="tp-erc" role="dialog" aria-label="European Rover Challenge"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/a-erc.jpg" alt="European Rover Challenge team" loading="lazy"><p><b>European Rover Challenge</b>Best team in the maintenance task.</p></div>
+<div class="lb" id="tp-prov" role="dialog" aria-label="Providence College workshop"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/t-10.jpg" alt="Hands on robotics workshop" loading="lazy"><p><b>Providence College</b>Building ROS based hardware projects, hands on.</p></div>
+<div class="lb" id="tp-crs" role="dialog" aria-label="CRS workshop"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/t-7.jpg" alt="Students programming robots" loading="lazy"><p><b>Cochin Refineries School</b>Programming robots with Arduino.</p></div>
+<div class="lb" id="tp-nasa" role="dialog" aria-label="NASA Space Apps"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/a-nasa.jpg" alt="NASA Space Apps champions" loading="lazy"><p><b>NASA Space Apps Hackathon</b>First prize.</p></div>
+<div class="lb" id="tp-mits" role="dialog" aria-label="MITS workshop"><a class="lb-bg" href="#teaching" aria-label="Close"></a><a class="lb-x mono" href="#teaching">Close ✕</a><img src="assets/v2/t-6.jpg" alt="Autonomous navigation workshop" loading="lazy"><p><b>MITS</b>Implementing autonomous navigation with ROS.</p></div>
+</div>
 </body>
-
 </html>
